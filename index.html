@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css" />
+    <style>
+      .logo {
+        flex-basis: auto;
+        width: 200px;
+        height: 40px;
+        background-color: aqua;
+      }
+      .title {
+        padding: 22px 0 18px;
+        font-size: 46px;
+        line-height: 1;
+        /* font-weight: bold; */
+      }
+      .sub-title {
+        padding: 22px 0 18px;
+        font-size: 36px;
+        line-height: 1;
+        /* font-weight: bold; */
+      }
+      .banner {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+          206deg,
+          rgba(255, 0, 0, 0.09) 0%,
+          rgba(255, 255, 255, 0.19) 50%,
+          rgba(0, 34, 255, 0.14) 100%
+        );
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        min-width: 300px;
+        max-width: 1170px;
+        margin: 0 auto;
+        gap: 0 100px;
+      }
+      .banner-left {
+        flex-basis: auto;
+        width: 530px;
+      }
+      .banner-right {
+        flex-basis: auto;
+        width: 650px;
+      }
+      .banner-right img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .desc {
+        max-width: 90%;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="nav-container">
+        <div class="logo">logo</div>
+        <div class="nav-mian">
+          <a href="">pricing</a><a href="">about</a><a href="">contact us</a>
+        </div>
+        <div class="nav-right"><a href="">login</a></div>
+      </div>
+      <div class="banner">
+        <div class="wrapper">
+          <div class="banner-left">
+            <div>
+              <div class="title">这是一个标题</div>
+              <div class="sub-title">这是一个标题</div>
+              <div class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
+                accumsan et viverra justo commodo. Proin sodales pulvinar sic
+                tempor. Sociis natoque penatibus et magnis dis parturient
+                montes, nascetur ridiculus mus. Nam fermentum, nulla luctus
+                pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin
+                sapien nunc accuan eget.
+              </div>
+              <div>
+                <button>button1</button>
+                <button>button2</button>
+              </div>
+            </div>
+          </div>
+          <div class="banner-right">
+            <img src="./123132.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

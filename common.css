@@ -1,0 +1,44 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+body a {
+  text-decoration: none;
+}
+.nav-container {
+  min-width: 300px;
+  max-width: 1170px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-mian {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  margin-left: 150px;
+}
+.nav-mian a {
+  color: #1e1c2c;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+}
+.nav-right {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+}
+
+@media (min-width: 368px) and (max-width: 1170px) {
+  .nav-container {
+    margin: 0 40px;
+  }
+  .nav-mian {
+    margin-left: 80px;
+  }
+}
