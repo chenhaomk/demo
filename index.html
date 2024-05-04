@@ -132,9 +132,19 @@
       <div class="nav-container">
         <div class="logo">logo</div>
         <div class="nav-mian">
-          <a href="">pricing</a><a href="">about</a><a href="">contact us</a>
+          <span>pricing</span><span>about</span><span>contact us</span>
         </div>
-        <div class="nav-right"><a href="">login</a></div>
+        <div class="nav-right">
+          <span class="login">login</span>
+
+          <div class="tooltip">
+            <img src="./profile.png" alt="" class="profile hidden" />
+            <span class="tooltiptext">
+              <div>Credits: 0</div>
+              <div class="profile-sign-out">Sign out</div>
+            </span>
+          </div>
+        </div>
       </div>
       <div class="banner">
         <div class="wrapper">
@@ -221,6 +231,57 @@
               <p>support</p>
               <p>Contact us</p>
               <p>About</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-register hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-register">
+          <div class="close-icon close-icon-register"></div>
+          <div class="popup-left">
+            <img src="./login.png" alt="" />
+          </div>
+          <div class="form form-register">
+            <h4>Sign in with your email</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="register-email"
+              />
+              <input type="submit" value="Sign up" class="register-submit" />
+              <span
+                >Already have an account?<a class="sign-in">Sign in</a></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-login hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-login">
+          <div class="close-icon close-icon-login"></div>
+          <div class="popup-left">
+            <img src="./login.png" alt="" />
+          </div>
+          <div class="form">
+            <h4>Welcome to xxxx</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="login-email"
+              />
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                class="password"
+              />
+              <input type="submit" value="Sign in" class="login-submit" />
             </div>
           </div>
         </div>
