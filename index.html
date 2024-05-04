@@ -57,10 +57,73 @@
       }
 
       .desc {
-        max-width: 90%;
         font-size: 16px;
         line-height: 26px;
         font-weight: 500;
+      }
+      .btn-box {
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 350px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn-box span {
+        background-color: #0049f1;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 16px;
+        font-size: 16px;
+        width: 120px;
+        text-align: center;
+      }
+      .btn-box span:hover {
+        background-color: #2063ff;
+      }
+      .list {
+        height: auto;
+        gap: 30px 50px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+      .list .item {
+        flex: 0 0 calc(50% - 50px);
+      }
+      .list .item img {
+        width: 100%;
+        height: 270px;
+      }
+      .list .item h4 {
+        padding: 4px 0 12px;
+        font-size: 20px;
+        vertical-align: text-bottom;
+        color: #000;
+        font-weight: 700;
+      }
+      .list .item div {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .list .item .item-btn {
+        cursor: pointer;
+        text-align: center;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #dddce2;
+        border-radius: 30px;
+        color: #dddce2;
+      }
+      .list .item .item-btn:hover {
+        border: 1px solid black;
+        color: black;
       }
     </style>
   </head>
@@ -88,9 +151,9 @@
                 pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin
                 sapien nunc accuan eget.
               </div>
-              <div>
-                <button>button1</button>
-                <button>button2</button>
+              <div class="btn-box">
+                <span id="banner-btn-left">span1</span>
+                <span id="banner-btn-right">span2</span>
               </div>
             </div>
           </div>
@@ -99,6 +162,70 @@
           </div>
         </div>
       </div>
+      <div class="list">
+        <div class="item">
+          <img src="./item.png" alt="" />
+          <div class="item-desc">
+            <h4>这是一个标题</h4>
+            <div>
+              这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
+            </div>
+            <div class="item-btn">learn more</div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./item.png" alt="" />
+          <div class="item-desc">
+            <h4>这是一个标题</h4>
+            <div>
+              这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
+            </div>
+            <div class="item-btn">learn more</div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./item.png" alt="" />
+          <div class="item-desc">
+            <h4>这是一个标题</h4>
+            <div>
+              这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
+            </div>
+            <div class="item-btn">learn more</div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./item.png" alt="" />
+          <div class="item-desc">
+            <h4>这是一个标题</h4>
+            <div>
+              这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
+            </div>
+            <div class="item-btn">learn more</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-box">
+          <div class="footer-left">
+            <div>Be Face Swap with</div>
+            <div>iSmartta</div>
+            <div class="copyright">© 2024 xxxxxxxxx</div>
+          </div>
+          <div class="footer-right">
+            <div class="resource">
+              <p>resource</p>
+              <p>xxx</p>
+              <p>xxx</p>
+            </div>
+            <div class="support">
+              <p>support</p>
+              <p>Contact us</p>
+              <p>About</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
+  <script src="./common.js"></script>
 </html>

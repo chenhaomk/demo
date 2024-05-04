@@ -1,11 +1,15 @@
-body {
+body,
+h4,
+p {
   padding: 0;
   margin: 0;
 }
 body a {
   text-decoration: none;
 }
-.nav-container {
+.nav-container,
+.list,
+.footer {
   min-width: 300px;
   max-width: 1170px;
   margin: 0 auto;
@@ -41,4 +45,73 @@ body a {
   .nav-mian {
     margin-left: 80px;
   }
+}
+
+.footer {
+  height: auto;
+  background-color: #f4f4f4;
+  margin-bottom: 30px;
+}
+.footer-box {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 80%;
+  border-top: 1px solid #ececee;
+  display: flex;
+  padding-top: 28px;
+  padding-bottom: 32px;
+  justify-content: space-between;
+}
+.footer-left,
+.footer-right {
+  flex: 0 0 50%;
+}
+.footer-left div:first-child {
+  font-size: 24px;
+  line-height: 36px;
+  color: black;
+  font-weight: 600;
+}
+.footer-left div:nth-child(2) {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 600;
+  font-style: italic;
+  color: #453e64;
+  margin-top: 8px;
+}
+.copyright {
+  color: #cdccd4;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 8px;
+}
+.footer-right {
+  text-align: center;
+}
+.footer-right div {
+  display: inline-block;
+}
+.footer-right .support {
+  margin-left: 50px;
+}
+.resource p:nth-child(1),
+.support p:nth-child(1) {
+  font-size: 20px;
+  color: #453e64;
+  font-weight: 600;
+}
+
+.resource p:nth-child(2),
+.support p:nth-child(2) {
+  font-size: 16px;
+  margin-top: 12px;
+  color: #cdccd4;
+}
+
+.resource p:nth-child(3),
+.support p:nth-child(3) {
+  font-size: 16px;
+  margin-top: 12px;
+  color: #cdccd4;
 }
