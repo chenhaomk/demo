@@ -1,34 +1,38 @@
 (function () {
-  const bannerBtnLeft = document.getElementById("banner-btn-left");
-  const bannerBtnRight = document.getElementById("banner-btn-right");
-  const loginBtn = document.getElementsByClassName("nav-right")[0];
-  const popupContaineRegister = document.querySelector(
-    ".popup-container-register"
-  );
+  const bannerBtnLeft = document.getElementById("banner-btn-left") || {};
+  const bannerBtnRight = document.getElementById("banner-btn-right") || {};
+  const loginBtn = document.getElementsByClassName("nav-right")[0] || {};
+  const popupContaineRegister =
+    document.querySelector(".popup-container-register") || {};
 
-  const popupContaineLogin = document.querySelector(".popup-container-login");
+  const popupContaineLogin =
+    document.querySelector(".popup-container-login") || {};
 
-  const closeBtn = document.querySelector(".close-icon-register");
-  const closeLogin = document.querySelector(".close-icon-login");
+  const closeBtn = document.querySelector(".close-icon-register") || {};
+  const closeLogin = document.querySelector(".close-icon-login") || {};
 
-  const formRegister = document.getElementsByClassName("form-register")[0];
-  const popupRegister = document.getElementsByClassName("popup-register")[0];
-  const signIn = document.querySelector(".sign-in");
+  const formRegister =
+    document.getElementsByClassName("form-register")[0] || {};
+  const popupRegister =
+    document.getElementsByClassName("popup-register")[0] || {};
+  const signIn = document.querySelector(".sign-in") || {};
 
-  const registerSubmit = document.querySelector(".register-submit");
-  const loginSubmit = document.querySelector(".login-submit");
-  const login = document.querySelector(".login");
-  const profile = document.querySelector(".profile");
-  const signOut = document.querySelector(".profile-sign-out");
-
+  const registerSubmit = document.querySelector(".register-submit") || {};
+  const loginSubmit = document.querySelector(".login-submit") || {};
+  const login = document.querySelector(".login") || {};
+  const profile = document.querySelector(".profile") || {};
+  const signOut = document.querySelector(".profile-sign-out") || {};
 
   function show(e) {
-    e.classList.remove("hidden");
+    if (e && e.classList) {
+      e.classList.remove("hidden");
+    }
   }
 
   function hidden(e) {
-    console.log(e);
-    e.classList.add("hidden");
+    if (e && e.classList) {
+      e.classList.add("hidden");
+    }
   }
   bannerBtnLeft.onclick = () => {
     console.log("bannerBtnLeft");

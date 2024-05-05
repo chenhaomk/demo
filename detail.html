@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css" />
+    <style>
+      .detail-banner {
+        background-color: #f8f9fe;
+        height: auto;
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .detail-banner h2 {
+        font-size: 40px;
+        font-weight: 800;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .detail-banner p {
+        color: #666669;
+        margin-bottom: 20px;
+      }
+      .detail-banner ul {
+        margin: 0 auto;
+        width: 500px;
+        list-style-type: none;
+        display: flex;
+        padding: 6px;
+        background-color: #e3e3e3;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 20px;
+        gap: 0 6px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .detail-banner ul li {
+        flex: 0 0 calc(33% - 6px);
+        border-radius: 14px;
+        color: #3d4e66;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .detail-banner ul .li-active {
+        background-color: #0e45f5;
+        color: white;
+      }
+      .tab-content1 {
+        overflow: hidden;
+      }
+      .step-box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        /* overflow: hidden; */
+        height: auto;
+      }
+      .step-item {
+        flex: 0 0 calc(33.33% - 21px);
+        border-right: 1px solid #96aec4;
+        padding: 0 10px;
+        margin-bottom: 40px;
+      }
+      .step-box div:last-child {
+        border-right: none;
+      }
+      .step-item span {
+        color: #0e45f5;
+      }
+      .step-title {
+        font-weight: 600;
+        padding-bottom: 30px;
+      }
+      .step-btn {
+        width: 160px;
+        height: 38px;
+        line-height: 38px;
+        background-color: #0e45f5;
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .step-item p {
+        text-align: center;
+        color: #96aec4;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .step-img-box {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .step-img-box img {
+        width: 290px;
+        height: 400px;
+      }
+
+      .carousel {
+        width: 1170px;
+        height: 350px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      img {
+        width: 1170px;
+        height: 350px;
+      }
+
+      .contain {
+        display: flex;
+        width: 4500px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .btn {
+        width: 150px;
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        left: 375px;
+        bottom: 10px;
+      }
+
+      .btn span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border: 3px solid white;
+        border-radius: 50%;
+      }
+
+      .carousel a {
+        text-decoration: none;
+        font-size: 50px;
+        color: white;
+        position: absolute;
+        top: 35%;
+      }
+
+      .carousel a:nth-of-type(1) {
+        left: 10px;
+      }
+
+      .carousel a:nth-of-type(2) {
+        right: 10px;
+      }
+
+      #comment-box {
+        position: relative;
+        height: auto;
+        padding: 0 200px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        /* overflow: hidden; */
+      }
+      .comment-sd {
+        width: calc(100% - 200px);
+        padding: 0 100px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+      }
+      .comment {
+        /* width: 50%; */
+        flex: 0 0 calc(50% - 10px);
+        /* position: absolute; */
+        /* width: 100%; */
+        display: none;
+      }
+      .comment.active {
+        display: block;
+      }
+      .comment-item {
+        text-align: center;
+        padding: 0 20px;
+      }
+      .comment-item img {
+        width: 180px;
+        height: 60px;
+        margin-bottom: 20px;
+      }
+      .comment-item p {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 24px;
+        padding: 0 20px;
+      }
+      .comment-sd a {
+        text-decoration: none;
+        font-size: 50px;
+        color: #e3e3e3;
+        position: absolute;
+        top: 28%;
+      }
+
+      .comment-sd a:nth-of-type(1) {
+        left: 10px;
+      }
+
+      .comment-sd a:nth-of-type(2) {
+        right: 10px;
+      }
+      .tab-content2 {
+        height: auto;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+      .content2-left {
+        float: left;
+        width: 40%;
+      }
+      .content2-right {
+        float: right;
+        width: 60%;
+        height: 468px;
+      }
+      .content2-right img {
+        width: 100%;
+        height: 100%;
+      }
+      .content2-step {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="nav-container">
+        <div class="logo">logo</div>
+        <div class="nav-mian">
+          <span>pricing</span><span>about</span><span>contact us</span>
+        </div>
+        <div class="nav-right">
+          <span class="login">login</span>
+          <div class="tooltip">
+            <div class="profile hidden">
+              <img src="./profile.png" alt="" />
+            </div>
+            <span class="tooltiptext">
+              <div>Credits: 0</div>
+              <div class="profile-sign-out">Sign out</div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-banner">
+        <h2>Free AI Face Swap for Photos & Videos</h2>
+        <p>
+          Change faces in video and photos to anyone you like. Free swap face
+          now!
+        </p>
+        <ul class="tab">
+          <li class="li-active">photo face swap</li>
+          <li>video face swap</li>
+          <li>video face swap</li>
+        </ul>
+      </div>
+      <div class="tab-content1">
+        <div class="step-box">
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+        </div>
+        <div class="step-img-box">
+          <img src="./stepImg.png" alt="" />
+          <img src="./stepImg.png" alt="" />
+        </div>
+        <div>
+          <div class="carousel">
+            <div class="contain">
+              <img src="./slide1.png" />
+              <img src="./slide2.png" />
+              <img src="./slide3.png" />
+            </div>
+            <a href="javascript:void(0);">&lt;</a>
+            <a href="javascript:void(0);">&gt;</a>
+          </div>
+        </div>
+
+        <div id="comment-box">
+          <div class="comment-sd">
+            <div class="comment">
+              <div class="comment-item">
+                <img src="./comment.png" alt="" />
+                <p>
+                  1阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                  阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="./comment.png" alt="" />
+                <p>
+                  2阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                  阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="./comment.png" alt="" />
+                <p>
+                  3阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                  阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="./comment.png" alt="" />
+                <p>
+                  4阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                  阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
+                </p>
+              </div>
+            </div>
+            <a href="javascript:void(0);" id="prev">&lt;</a>
+            <a href="javascript:void(0);" id="next">&gt;</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content2 hidden">
+        <div class="content2-left">
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>STEP1:</span>Upload a photo with a face (Base photo)
+            </div>
+            <div class="step-btn">Upload photo</div>
+            <p>Drag or uplaod your photoxxxxxxx</p>
+          </div>
+        </div>
+        <div class="content2-right">
+          <img src="./tab-content.png" alt="" />
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-box">
+          <div class="footer-left">
+            <div>Be Face Swap with</div>
+            <div>iSmartta</div>
+            <div class="copyright">© 2024 xxxxxxxxx</div>
+          </div>
+          <div class="footer-right">
+            <div class="resource">
+              <p>resource</p>
+              <p>xxx</p>
+              <p>xxx</p>
+            </div>
+            <div class="support">
+              <p>support</p>
+              <p>Contact us</p>
+              <p>About</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-register hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-register">
+          <div class="close-icon close-icon-register"></div>
+          <div class="popup-left">
+            <img src="./login.png" alt="" />
+          </div>
+          <div class="form form-register">
+            <h4>Sign in with your email</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="register-email"
+              />
+              <input type="submit" value="Sign up" class="register-submit" />
+              <span
+                >Already have an account?<a class="sign-in">Sign in</a></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-login hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-login">
+          <div class="close-icon close-icon-login"></div>
+          <div class="popup-left">
+            <img src="./login.png" alt="" />
+          </div>
+          <div class="form">
+            <h4>Welcome to xxxx</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="login-email"
+              />
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                class="password"
+              />
+              <input type="submit" value="Sign in" class="login-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./common.js"></script>
+  <script src="./detail.js"></script>
+  <script>
+    var _carousel = document.querySelector(".carousel");
+    var _contain = document.querySelector(".contain");
+    var _nextPic = document.querySelector(".carousel a:nth-of-type(2)");
+    var _prevPic = document.querySelector(".carousel a:nth-of-type(1)");
+
+    _nextPic.onclick = function () {
+      next_pic();
+    };
+    var index = 0;
+    function next_pic() {
+      _contain.style.left = _contain.offsetLeft - 1170 + "px";
+      if (_contain.offsetLeft <= -3510) {
+        _contain.style.left = 0;
+      }
+      index++;
+      if (index > 2) {
+        index = 0;
+      }
+      //   spots();
+    }
+
+    _prevPic.onclick = function () {
+      prev_pic();
+    };
+    function prev_pic() {
+      _contain.style.left = _contain.offsetLeft + 600 + "px";
+      if (_contain.offsetLeft > 0) {
+        _contain.style.left = -2340 + "px";
+      }
+      index--;
+      if (index < 0) {
+        index = 2;
+      }
+      //   spots();
+    }
+
+    // autoplay();
+    var id;
+    function autoplay() {
+      id = setInterval(function () {
+        next_pic();
+      }, 2000);
+    }
+    _carousel.onmouseover = function () {
+      clearInterval(id);
+    };
+    _carousel.onmouseout = function () {
+      autoplay();
+    };
+  </script>
+  <script>
+    const commentBox = document.getElementById("comment-box");
+    const comments = document.querySelectorAll(".comment");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    let activeIndex = 0;
+
+    function showComment(index) {
+      comments.forEach((comment) => comment.classList.remove("active"));
+      comments[index].classList.add("active");
+      if (index === 3) {
+        comments[0].classList.add("active");
+      } else {
+        comments[index + 1].classList.add("active");
+      }
+    }
+
+    function nextComment() {
+      activeIndex = (activeIndex + 1) % comments.length;
+      console.log(activeIndex);
+      showComment(activeIndex);
+    }
+
+    function prevComment() {
+      console.log(activeIndex);
+      activeIndex = (activeIndex - 1 + comments.length) % comments.length;
+      showComment(activeIndex);
+    }
+
+    showComment(activeIndex);
+
+    nextBtn.addEventListener("click", nextComment);
+    prevBtn.addEventListener("click", prevComment);
+  </script>
+</html>

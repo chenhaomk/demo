@@ -12,13 +12,27 @@ body {
 }
 .nav-container,
 .list,
-.footer {
+.footer,
+.detail-banner,
+.step-box,
+.step-img-box,
+#comment-box,
+.tab-content2,
+.price,
+.faq {
   min-width: 300px;
   max-width: 1170px;
   margin: 0 auto;
   height: 80px;
   display: flex;
   align-items: center;
+}
+
+.logo {
+  flex-basis: auto;
+  width: 200px;
+  height: 40px;
+  background-color: aqua;
 }
 
 .nav-mian {
