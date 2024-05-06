@@ -22,6 +22,9 @@
   const login = document.querySelector(".login") || {};
   const profile = document.querySelector(".profile") || {};
   const signOut = document.querySelector(".profile-sign-out") || {};
+  const pricing = document.querySelector(".pricing") || {};
+  const detailBtn = document.getElementsByClassName("detail-btn") || [];
+  const logo = document.querySelector(".logo");
 
   function show(e) {
     if (e && e.classList) {
@@ -91,5 +94,20 @@
     show(login);
     hidden(profile);
     hidden(popupContaineRegister);
+  };
+
+  pricing.onclick = () => {
+    window.location.href = "./pricing.html";
+  };
+
+  for (let i = 0; i < detailBtn.length; i++) {
+    detailBtn[i].onclick = () => {
+      window.location.href = "./detail.html";
+    };
+  }
+
+  logo.onclick = () => {
+    console.log(11);
+    window.location.href = "./index.html";
   };
 })();

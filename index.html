@@ -33,6 +33,10 @@
           rgba(255, 255, 255, 0.19) 50%,
           rgba(0, 34, 255, 0.14) 100%
         );
+        background-image: url("./123132.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
       }
 
       .wrapper {
@@ -114,13 +118,41 @@
       .list .item .item-btn {
         cursor: pointer;
         text-align: center;
-        width: 120px;
+        width: 180px;
         height: 30px;
         line-height: 30px;
         border: 1px solid #dddce2;
         border-radius: 30px;
-        color: #dddce2;
+        color: #111115;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
+      .item-btn span:first-child {
+        margin-left: 20px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .item-btn span:last-child {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: #111115;
+        margin-right: 10px;
+      }
+
+      .detail-arrow {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+        border-color: white;
+        border-style: solid;
+        border-width: 2px 2px 0 0;
+        transform: rotate(45deg);
+        margin-top: 6px;
+        margin-left: 5px;
+      }
+
       .list .item .item-btn:hover {
         border: 1px solid black;
         color: black;
@@ -132,7 +164,8 @@
       <div class="nav-container">
         <div class="logo">logo</div>
         <div class="nav-mian">
-          <span>pricing</span><span>about</span><span>contact us</span>
+          <span class="pricing">pricing</span><span>about</span
+          ><span>contact us</span>
         </div>
         <div class="nav-right">
           <span class="login">login</span>
@@ -170,7 +203,7 @@
             </div>
           </div>
           <div class="banner-right">
-            <img src="./123132.png" alt="" />
+            <!-- <img src="./123132.png" alt="" /> -->
           </div>
         </div>
       </div>
@@ -182,7 +215,12 @@
             <div>
               这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
             </div>
-            <div class="item-btn">learn more</div>
+            <div class="item-btn detail-btn">
+              <span class="detail-btn-text"> learn more</span>
+              <span>
+                <div class="detail-arrow"></div>
+              </span>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -192,7 +230,12 @@
             <div>
               这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
             </div>
-            <div class="item-btn">learn more</div>
+            <div class="item-btn detail-btn">
+              <span class="detail-btn-text"> learn more</span>
+              <span>
+                <div class="detail-arrow"></div>
+              </span>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -202,7 +245,12 @@
             <div>
               这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
             </div>
-            <div class="item-btn">learn more</div>
+            <div class="item-btn detail-btn">
+              <span class="detail-btn-text"> learn more</span>
+              <span>
+                <div class="detail-arrow"></div>
+              </span>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -212,7 +260,12 @@
             <div>
               这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
             </div>
-            <div class="item-btn">learn more</div>
+            <div class="item-btn detail-btn">
+              <span class="detail-btn-text"> learn more</span>
+              <span>
+                <div class="detail-arrow"></div>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -253,6 +306,7 @@
                 name="email"
                 class="register-email"
               />
+              <span class="error-text">邮箱错误</span>
               <input type="submit" value="Sign up" class="register-submit" />
               <span
                 >Already have an account?<a class="sign-in">Sign in</a></span
@@ -277,12 +331,14 @@
                 name="email"
                 class="login-email"
               />
+              <span class="error-text">邮箱错误</span>
               <input
                 type="password"
                 placeholder="password"
                 name="password"
                 class="password"
               />
+              <span class="error-text">密码错误</span>
               <input type="submit" value="Sign in" class="login-submit" />
             </div>
           </div>
