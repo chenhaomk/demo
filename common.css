@@ -61,6 +61,10 @@ body {
   padding: 8px 14px;
   border-radius: 5px;
 }
+.nav-mian-active {
+  background-color: #cccccc;
+  color: white !important;
+}
 .nav-mian span:hover,
 .nav-right span:hover {
   background-color: #cccccc;

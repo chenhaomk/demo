@@ -26,6 +26,8 @@
   const detailBtn = document.getElementsByClassName("detail-btn") || [];
   const logo = document.querySelector(".logo");
 
+  const navBtn = document.getElementsByClassName("nav-mian") || [];
+
   function show(e) {
     if (e && e.classList) {
       e.classList.remove("hidden");
@@ -110,4 +112,17 @@
     console.log(11);
     window.location.href = "./index.html";
   };
+
+  navBtn[0].onclick = (e) => {
+    for (let i = 0; i < navBtn[0].children.length; i++) {
+      navBtn[0].children[i].classList.remove("nav-mian-active");
+    }
+    if (e.target && e.target.nodeName === "SPAN") {
+      e.target.classList.add("nav-mian-active");
+    }
+  };
+
+  if (window.location.href.indexOf("/pricing.html") !== -1) {
+    navBtn[0].children[0].classList.add("nav-mian-active");
+  }
 })();
