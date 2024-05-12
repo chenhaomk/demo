@@ -74,32 +74,76 @@
   signIn.onclick = (e) => {
     e.stopPropagation();
     hidden(popupContaineRegister);
+    console.log("signin click")
     show(popupContaineLogin);
   };
 
   registerSubmit.onclick = () => {
     const email = document.querySelector(".register-email");
     console.log("注册", email.value);
+    show(signOut)
   };
 
   loginSubmit.onclick = () => {
     const email = document.querySelector(".login-email");
     const password = document.querySelector(".password");
-    console.log("登录", email.value, password.value);
-    hidden(login);
-    hidden(popupContaineLogin);
-    show(profile);
+    console.log("login", email.value, password.value);
+
+    $.ajax({
+      type : "POST",
+      url : 'login', 
+      data : JSON.stringify({email:email.value, password:password.value}),
+      contentType : "application/json;charset=utf-8",
+      //dataType : "json",
+      success : function(data){
+              console.log("response",data);
+              hidden(login);
+              hidden(popupContaineLogin);
+              show(profile);
+              show(signOut);
+            },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("error happend");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+
+      complete: function(XMLHttpRequest, textStatus) {
+                    this; // 调用本次AJAX请求时传递的options参数
+            }
+
+      
+    });
   };
 
   signOut.onclick = (e) => {
     e.stopPropagation();
-    show(login);
-    hidden(profile);
-    hidden(popupContaineRegister);
+    $.ajax({
+      type : "GET",
+      url : 'signout', 
+      contentType : "application/json;charset=utf-8",
+      //dataType : "json",
+      success : function(data){
+              show(login);
+              hidden(profile);
+              hidden(popupContaineRegister);
+            },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("error happend");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+
+      complete: function(XMLHttpRequest, textStatus) {
+                    this; // 调用本次AJAX请求时传递的options参数
+            }
+    });
   };
 
   pricing.onclick = () => {
-    window.location.href = "./pricing.html";
+    window.location.href = "./pricing";
   };
 
   for (let i = 0; i < detailBtn.length; i++) {
@@ -110,7 +154,7 @@
 
   logo.onclick = () => {
     console.log(11);
-    window.location.href = "./index.html";
+    window.location.href = "./index";
   };
 
   navBtn[0].onclick = (e) => {

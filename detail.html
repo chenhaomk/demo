@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./swiper/swiper.min.css" />
     <link rel="stylesheet" href="./common.css" />
+    <link rel="stylesheet" href="../static/common.css" />
     <style>
       .detail-banner {
         background-color: #f8f9fe;
@@ -114,10 +115,6 @@
         position: relative;
       }
 
-      img {
-        /* width: 1170px; */
-        /* height: 350px; */
-      }
 
       .contain {
         display: flex;
@@ -553,7 +550,7 @@
           <span class="login">login</span>
           <div class="tooltip">
             <div class="profile hidden">
-              <img src="./profile.png" alt="" />
+              <img src="../static/profile.png" alt="" />
             </div>
             <span class="tooltiptext">
               <div>Credits: 0</div>
@@ -671,11 +668,16 @@
           <img src="./stepImg.png" alt="" />
         </div> -->
         <!-- <div>
+        <div class="step-img-box">
+          <img src="../static/stepImg.png" alt="" />
+          <img src="../static/stepImg.png" alt="" />
+        </div>
+        <div>
           <div class="carousel">
             <div class="contain">
-              <img src="./slide1.png" />
-              <img src="./slide2.png" />
-              <img src="./slide3.png" />
+              <img src="../static/slide1.png" />
+              <img src="../static/slide2.png" />
+              <img src="../static/slide3.png" />
             </div>
             <a href="javascript:void(0);">&lt;</a>
             <a href="javascript:void(0);">&gt;</a>
@@ -715,7 +717,7 @@
           <div class="comment-sd">
             <div class="comment">
               <div class="comment-item">
-                <img src="./comment.png" alt="" />
+                <img src="../static/comment.png" alt="" />
                 <p>
                   1阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
                   阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
@@ -724,7 +726,7 @@
             </div>
             <div class="comment">
               <div class="comment-item">
-                <img src="./comment.png" alt="" />
+                <img src="../static/comment.png" alt="" />
                 <p>
                   2阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
                   阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
@@ -733,7 +735,7 @@
             </div>
             <div class="comment">
               <div class="comment-item">
-                <img src="./comment.png" alt="" />
+                <img src="../static/comment.png" alt="" />
                 <p>
                   3阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
                   阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
@@ -742,7 +744,7 @@
             </div>
             <div class="comment">
               <div class="comment-item">
-                <img src="./comment.png" alt="" />
+                <img src="../static/comment.png" alt="" />
                 <p>
                   4阿斯顿发你卢卡斯的反射空间的反射的肌肤阿斯顿佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
                   阀啊士大夫立刻撒旦发你佛龛三顿饭手动阀手动阀啊士大夫立刻撒旦发你
@@ -783,7 +785,7 @@
           </div>
         </div>
         <div class="content2-right">
-          <img src="./tab-content.png" alt="" />
+          <img src="../static/tab-content.png" alt="" />
         </div>
       </div>
 
@@ -813,7 +815,7 @@
         <div class="popup popup-register">
           <div class="close-icon close-icon-register"></div>
           <div class="popup-left">
-            <img src="./login.png" alt="" />
+            <img src="../static/login.png" alt="" />
           </div>
           <div class="form form-register">
             <h4>Sign in with your email</h4>
@@ -837,7 +839,7 @@
         <div class="popup popup-login">
           <div class="close-icon close-icon-login"></div>
           <div class="popup-left">
-            <img src="./login.png" alt="" />
+            <img src="../static/login.png" alt="" />
           </div>
           <div class="form">
             <h4>Welcome to xxxx</h4>
@@ -861,9 +863,11 @@
       </div>
     </div>
   </body>
+  <script src="./swiper/swiper.min.js"></script>
   <script src="./common.js"></script>
   <script src="./detail.js"></script>
-  <script src="./swiper/swiper.min.js"></script>
+  <script src="../static/common.js"></script>
+  <script src="../static/detail.js"></script>
   <script>
     var _carousel = document.querySelector(".carousel");
     var _contain = document.querySelector(".contain");
