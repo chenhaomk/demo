@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Swiper Demo</title>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<style>
+  .swiper-container {
+    width: 600px;
+    height: 300px;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 30px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide-active {
+    width: 80%; /* 中间slide大小 */
+  }
+  .swiper-slide-prev, .swiper-slide-next {
+    width: 60%; /* 两边slide大小 */
+  }
+</style>
+</head>
+<body>
+ 
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    <div class="swiper-slide">Slide 4</div>
+    <div class="swiper-slide">Slide 5</div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+ 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var mySwiper = new Swiper('.swiper-container', {
+    // Optional parameters
+    loop: true,
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
+</script>
+ 
+</body>
+</html>
