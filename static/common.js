@@ -143,7 +143,7 @@
   };
 
   pricing.onclick = () => {
-    window.location.href = "./pricing";
+    window.location.href = "./pricing.html";
   };
 
   for (let i = 0; i < detailBtn.length; i++) {
@@ -154,7 +154,7 @@
 
   logo.onclick = () => {
     console.log(11);
-    window.location.href = "./index";
+    window.location.href = "./index.html";
   };
 
   navBtn[0].onclick = (e) => {
