@@ -21,7 +21,7 @@
   };
   window.onload = function () {
     var swiper = new Swiper(".swiper-container", {
-      // autoplay: 3000,
+      autoplay: 2000,
       speed: 2000,
       autoplayDisableOnInteraction: false,
       loop: true,
