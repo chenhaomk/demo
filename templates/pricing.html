@@ -15,10 +15,13 @@
         align-items: flex-start;
       }
       .price-item {
-        background: linear-gradient(to bottom, #fffeda, #fff08c);
+        background-color: white;
         flex: 0 0 calc(25% - 60px);
         padding: 0 20px 30px 20px;
         border-radius: 5px;
+      }
+      .price-item-active {
+        background: linear-gradient(to bottom, #fffeda, #fff08c);
       }
 
       .price .type {
@@ -177,7 +180,7 @@
             <div>80 photos to swap face</div>
           </div>
         </div>
-        <div class="price-item">
+        <div class="price-item price-item-active">
           <div class="type">Monthly</div>
           <div class="credit">80 Credits</div>
           <div class="price-detail">
