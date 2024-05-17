@@ -159,6 +159,12 @@
       for (let j = 0; j < navBtn.length; j++) {
         navBtn[j].classList.remove("nav-mian-active");
         navBtn[i].classList.add("nav-mian-active");
+        if (
+          "Free Face Swap Mutiple Faces Utility".includes(navBtn[i].innerHTML)
+        ) {
+          window.location.href = "./detail.html";
+        }
+        console.log(navBtn[i].innerHTML);
       }
     };
   }
