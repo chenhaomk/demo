@@ -40,16 +40,23 @@ body {
   height: 40px;
   background-color: aqua;
   cursor: pointer;
+  background-image: url(../static/test_logo.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .nav-mian {
   display: flex;
   flex: 2;
   justify-content: space-around;
-  margin-left: 150px;
+  margin-left: 80px;
+  height: 100%;
+  align-items: center;
 }
 .nav-right span,
-.nav-mian span {
+.nav-mian span,
+.utility-title {
   color: #1e1c2c;
   vertical-align: baseline;
   box-sizing: border-box;
@@ -61,20 +68,32 @@ body {
   padding: 8px 14px;
   border-radius: 5px;
 }
+.nav-mian .nav-mian-item,
+.utility-box {
+  height: 80px;
+}
+.nav-mian .nav-mian-item span,
+.utility-title {
+  display: inline-block;
+  margin-top: 20px;
+}
 .nav-mian-active {
   background-color: #cccccc;
   color: white !important;
 }
 .nav-mian span:hover,
-.nav-right span:hover {
+.nav-right span:hover,
+.utility-title:hover {
   background-color: #cccccc;
   color: white;
 }
 
 .nav-right {
-  flex: 1;
+  max-width: 200px;
+  /* flex: 1; */
   text-align: right;
   font-weight: bold;
+  flex-basis: 100px;
 }
 .profile {
   cursor: pointer;
@@ -86,7 +105,7 @@ body {
     margin: 0 40px;
   }
   .nav-mian {
-    margin-left: 80px;
+    margin-left: 20px;
   }
 }
 
@@ -263,7 +282,8 @@ body {
   display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.tooltip .tooltiptext,
+.tooltip .utility {
   visibility: hidden;
   width: 120px;
   background-color: #fff;
@@ -284,6 +304,20 @@ body {
   text-align: left;
   height: auto;
 }
+.tooltip .utility {
+  width: 240px;
+  top: 52px;
+}
+
+.tooltip .utility::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  right: 40px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #e4e4e6 transparent;
+}
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
@@ -292,7 +326,7 @@ body {
 .tooltiptext div {
   height: 24px;
   line-height: 24px;
-  padding:0 8px;
+  padding: 0 8px;
 }
 
 .tooltiptext:hover {

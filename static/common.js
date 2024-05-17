@@ -26,7 +26,7 @@
   const detailBtn = document.getElementsByClassName("detail-btn") || [];
   const logo = document.querySelector(".logo");
 
-  const navBtn = document.getElementsByClassName("nav-mian") || [];
+  const navBtn = document.getElementsByClassName("nav-mian-click") || [];
 
   function show(e) {
     if (e && e.classList) {
@@ -46,7 +46,7 @@
     console.log("bannerBtnRight");
   };
 
-  loginBtn.onclick = () => {
+  loginBtn.onclick = (e) => {
     show(popupContaineRegister);
   };
   popupContaineRegister.onclick = (e) => {
@@ -74,14 +74,14 @@
   signIn.onclick = (e) => {
     e.stopPropagation();
     hidden(popupContaineRegister);
-    console.log("signin click")
+    console.log("signin click");
     show(popupContaineLogin);
   };
 
   registerSubmit.onclick = () => {
     const email = document.querySelector(".register-email");
     console.log("注册", email.value);
-    show(signOut)
+    show(signOut);
   };
 
   loginSubmit.onclick = () => {
@@ -90,55 +90,53 @@
     console.log("login", email.value, password.value);
 
     $.ajax({
-      type : "POST",
-      url : 'login', 
-      data : JSON.stringify({email:email.value, password:password.value}),
-      contentType : "application/json;charset=utf-8",
+      type: "POST",
+      url: "login",
+      data: JSON.stringify({ email: email.value, password: password.value }),
+      contentType: "application/json;charset=utf-8",
       //dataType : "json",
-      success : function(data){
-              console.log("response",data);
-              hidden(login);
-              hidden(popupContaineLogin);
-              show(profile);
-              show(signOut);
-            },
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("error happend");
-                console.log(XMLHttpRequest.status);
-                console.log(XMLHttpRequest.readyState);
-                console.log(textStatus);
-            },
+      success: function (data) {
+        console.log("response", data);
+        hidden(login);
+        hidden(popupContaineLogin);
+        show(profile);
+        show(signOut);
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("error happend");
+        console.log(XMLHttpRequest.status);
+        console.log(XMLHttpRequest.readyState);
+        console.log(textStatus);
+      },
 
-      complete: function(XMLHttpRequest, textStatus) {
-                    this; // 调用本次AJAX请求时传递的options参数
-            }
-
-      
+      complete: function (XMLHttpRequest, textStatus) {
+        this; // 调用本次AJAX请求时传递的options参数
+      },
     });
   };
 
   signOut.onclick = (e) => {
     e.stopPropagation();
     $.ajax({
-      type : "GET",
-      url : 'signout', 
-      contentType : "application/json;charset=utf-8",
+      type: "GET",
+      url: "signout",
+      contentType: "application/json;charset=utf-8",
       //dataType : "json",
-      success : function(data){
-              show(login);
-              hidden(profile);
-              hidden(popupContaineRegister);
-            },
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("error happend");
-                console.log(XMLHttpRequest.status);
-                console.log(XMLHttpRequest.readyState);
-                console.log(textStatus);
-            },
+      success: function (data) {
+        show(login);
+        hidden(profile);
+        hidden(popupContaineRegister);
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("error happend");
+        console.log(XMLHttpRequest.status);
+        console.log(XMLHttpRequest.readyState);
+        console.log(textStatus);
+      },
 
-      complete: function(XMLHttpRequest, textStatus) {
-                    this; // 调用本次AJAX请求时传递的options参数
-            }
+      complete: function (XMLHttpRequest, textStatus) {
+        this; // 调用本次AJAX请求时传递的options参数
+      },
     });
   };
 
@@ -153,20 +151,15 @@
   }
 
   logo.onclick = () => {
-    console.log(11);
     window.location.href = "./index.html";
   };
 
-  navBtn[0].onclick = (e) => {
-    for (let i = 0; i < navBtn[0].children.length; i++) {
-      navBtn[0].children[i].classList.remove("nav-mian-active");
-    }
-    if (e.target && e.target.nodeName === "SPAN") {
-      e.target.classList.add("nav-mian-active");
-    }
-  };
-
-  if (window.location.href.indexOf("/pricing.html") !== -1) {
-    navBtn[0].children[0].classList.add("nav-mian-active");
+  for (let i = 0; i < navBtn.length; i++) {
+    navBtn[i].onclick = () => {
+      for (let j = 0; j < navBtn.length; j++) {
+        navBtn[j].classList.remove("nav-mian-active");
+        navBtn[i].classList.add("nav-mian-active");
+      }
+    };
   }
 })();

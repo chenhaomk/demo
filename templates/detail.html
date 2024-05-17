@@ -114,7 +114,6 @@
         position: relative;
       }
 
-
       .contain {
         display: flex;
         width: 4500px;
@@ -542,8 +541,33 @@
       <div class="nav-container">
         <div class="logo">logo</div>
         <div class="nav-mian">
-          <span class="pricing">pricing</span><span>about</span
-          ><span>contact us</span>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click">Free Face Swap</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click">Mutiple Faces</span>
+          </div>
+          <div class="nav-mian-item">
+            <div class="tooltip">
+              <div class="utility-box">
+                <div class="utility-title nav-mian-click">Utility</div>
+              </div>
+              <span class="tooltiptext utility">
+                <div>Free Picture Compressor</div>
+                <div>Free Picture Editor</div>
+                <div>Free Video Editor</div>
+              </span>
+            </div>
+          </div>
+          <div class="nav-mian-item">
+            <span class="pricing nav-mian-click">pricing</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click">about</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click">contact us</span>
+          </div>
         </div>
         <div class="nav-right">
           <span class="login">login</span>
@@ -691,10 +715,14 @@
                 /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="../swiperImages/top_hero_cs_2017.jpg" /></a>
+                <a href="#"
+                  ><img src="../swiperImages/top_hero_cs_2017.jpg"
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="../swiperImages/top_hero_cw_im17.jpg" /></a>
+                <a href="#"
+                  ><img src="../swiperImages/top_hero_cw_im17.jpg"
+                /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"><img src="../swiperImages/top_hero_hakko.jpg" /></a>
@@ -866,55 +894,55 @@
   <script src="../static/common.js"></script>
   <script src="../static/detail.js"></script>
   <script>
-    var _carousel = document.querySelector(".carousel");
-    var _contain = document.querySelector(".contain");
-    var _nextPic = document.querySelector(".carousel a:nth-of-type(2)");
-    var _prevPic = document.querySelector(".carousel a:nth-of-type(1)");
+    // var _carousel = document.querySelector(".carousel");
+    // var _contain = document.querySelector(".contain");
+    // var _nextPic = document.querySelector(".carousel a:nth-of-type(2)");
+    // var _prevPic = document.querySelector(".carousel a:nth-of-type(1)");
 
-    _nextPic.onclick = function () {
-      next_pic();
-    };
-    var index = 0;
-    function next_pic() {
-      _contain.style.left = _contain.offsetLeft - 1170 + "px";
-      if (_contain.offsetLeft <= -3510) {
-        _contain.style.left = 0;
-      }
-      index++;
-      if (index > 2) {
-        index = 0;
-      }
-      //   spots();
-    }
+    // _nextPic.onclick = function () {
+    //   next_pic();
+    // };
+    // var index = 0;
+    // function next_pic() {
+    //   _contain.style.left = _contain.offsetLeft - 1170 + "px";
+    //   if (_contain.offsetLeft <= -3510) {
+    //     _contain.style.left = 0;
+    //   }
+    //   index++;
+    //   if (index > 2) {
+    //     index = 0;
+    //   }
+    //   //   spots();
+    // }
 
-    _prevPic.onclick = function () {
-      prev_pic();
-    };
-    function prev_pic() {
-      _contain.style.left = _contain.offsetLeft + 600 + "px";
-      if (_contain.offsetLeft > 0) {
-        _contain.style.left = -2340 + "px";
-      }
-      index--;
-      if (index < 0) {
-        index = 2;
-      }
-      //   spots();
-    }
+    // _prevPic.onclick = function () {
+    //   prev_pic();
+    // };
+    // function prev_pic() {
+    //   _contain.style.left = _contain.offsetLeft + 600 + "px";
+    //   if (_contain.offsetLeft > 0) {
+    //     _contain.style.left = -2340 + "px";
+    //   }
+    //   index--;
+    //   if (index < 0) {
+    //     index = 2;
+    //   }
+    //   //   spots();
+    // }
 
-    // autoplay();
-    var id;
-    function autoplay() {
-      id = setInterval(function () {
-        next_pic();
-      }, 2000);
-    }
-    _carousel.onmouseover = function () {
-      clearInterval(id);
-    };
-    _carousel.onmouseout = function () {
-      autoplay();
-    };
+    // // autoplay();
+    // var id;
+    // function autoplay() {
+    //   id = setInterval(function () {
+    //     next_pic();
+    //   }, 2000);
+    // }
+    // _carousel.onmouseover = function () {
+    //   clearInterval(id);
+    // };
+    // _carousel.onmouseout = function () {
+    //   autoplay();
+    // };
   </script>
   <script>
     const commentBox = document.getElementById("comment-box");
