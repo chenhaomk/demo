@@ -307,13 +307,13 @@ body {
 .tooltip .utility {
   width: 240px;
   top: 52px;
+  right: -153px;
 }
 
 .tooltip .utility::after {
   content: "";
   position: absolute;
   top: -14px;
-  right: 40px;
   border-width: 7px;
   border-style: solid;
   border-color: transparent transparent #e4e4e6 transparent;
