@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PicStrick's Contact and Support Page</title>
+    <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <style>
+      .price {
+        height: auto;
+        background-color: #f6f7ff;
+        justify-content: center;
+        padding: 12px 0;
+        gap: 0 20px;
+        align-items: flex-start;
+      }
+      .price-item {
+        background-color: white;
+        flex: 0 0 calc(25% - 60px);
+        padding: 0 20px 30px 20px;
+        border-radius: 5px;
+      }
+      
+      .price-item-active {
+        background: linear-gradient(to bottom, #fffeda, #fff08c);
+      }
+
+      .price .type {
+        margin-top: 28px;
+        font-size: 20px;
+        color: #17326b;
+        line-height: 30px;
+      }
+      .price .credit {
+        color: #0e45f5;
+        height: 24px;
+        margin-bottom: 8px;
+        margin-top: 14px;
+      }
+      .price-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .price-detail div span:last-child {
+        font-size: 24px;
+
+        /* font-weight: 600; */
+      }
+      .price-btn {
+        width: calc(100% - 2px);
+        border: 1px solid #ff8e29;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #ff8e29;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .price-btn:hover {
+        background-color: #ff8e29;
+        color: white;
+      }
+
+      .price-btn-active {
+        background-color: #ff8e29;
+        color: white;
+      }
+      .price-desc {
+        margin: 4px 0;
+        font-size: 14px;
+      }
+      .price-desc ::before {
+        content: "\2713";
+        font-size: 20px;
+        color: #0e45f5;
+      }
+
+      .faq {
+        background: linear-gradient(to bottom, #f5f6f9, #ffffff);
+        height: auto;
+        display: block;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+      .faq .title {
+        text-align: center;
+        display: block;
+        font-size: 26px;
+        font-weight: bolder;
+        margin: 24px 0;
+      }
+      .faq-list {
+        padding: 0 50px;
+      }
+      .faq-list-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-list-item {
+        border-bottom: 1px solid #999999;
+        cursor: pointer;
+      }
+      .faq-list .faq-list-item:last-child {
+        border: 0;
+      }
+      .faq-list-arrow {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+        border-color: #999999;
+        border-style: solid;
+        border-width: 2px 2px 0 0;
+        margin: 20px;
+      }
+      .arrow-down {
+        transform: rotate(135deg);
+      }
+      .arrow-up {
+        transform: rotate(315deg);
+      }
+      .faq-list-title {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .faq-list-item p {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .title-bule {
+        color: #0e45f5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="nav-container">
+        <div class="logo"></div>
+        <div class="nav-mian">
+ 
+            <!-- <div class="nav-mian-active">
+              <span class="nav-mian-click" id="face-swap-one">Free Face Swap</span>
+            </div> -->
+            <div class="nav-mian-item">
+              <span class="nav-mian-click" id="face-swap">Free Face Swap</span>
+            </div>
+          <div class="nav-mian-item">
+            <div class="tooltip">
+              <div class="utility-box">
+                <div class="utility-title nav-mian-click">Utility</div>
+              </div>
+              <span class="tooltiptext utility">
+                <div id="pic-compress">Free Photo Compressor</div>
+                <br>
+                <div id="pic-editor">Free Photo Enhancer</div>
+                <br>
+                <!-- <div id="video-editor">Free Video Editor</div> -->
+              </span>
+            </div>
+          </div>
+          <div class="nav-mian-item">
+            <span class="pricing nav-mian-click" id="to-pricing">Pricing</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click" id="to-about">About</span>
+          </div>
+          <div class="nav-mian-active">
+            <span class="nav-mian-click" id="to-contack-us">Contact Us</span>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="tooltip">
+            <div class="keyactive">
+              <!-- <img src="../static/img/active.png" alt="" width="30" height="30" /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="price">
+          <div class="popup-container popup-container-login">
+            <div class="overlay"></div>
+            <div class="popup popup-login">
+              <div class="close-icon close-icon-login"></div>
+              <div class="popup-left">
+                <!-- <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300" /> -->
+                  <div class="type">Others</div>
+                  <div class="credit">Unlimited Credits</div>
+                  <div class="price-desc">
+                    <div>Offers unlimited credits while your subscription is active.</div>
+                    <div>Unlimited photos to swap face.</div>
+                    <div>Supports multiple faces swap.</div>
+                    <div>Supports any image formats.</div>
+                    <div>No watermark on the photos.</div>
+                    <div>No quality loss for the photos.</div>
+                   <div>24-hour email support.</div>
+                  </div>
+              </div>
+              <div class="form">
+                <h4>Do you have any question or suggestion?</h4>
+                <div>
+                  <input
+                    type="input"
+                    placeholder="Your name"
+                    name="name"
+                    class="suggest-name"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    name="email"
+                    class="suggest-email"
+                  />
+                  <input
+                    type="textarea" aria-rowcount="4"
+                    placeholder="Your question/suggestion"
+                    name="suggestion"
+                    class="suggestion"
+                  />
+                  <input type="submit" value="Submit" class="suggest-submit" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="title">Miocreate Credit FAQs</div>
+        <div class="faq-list">
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">1. What Can I Do with PicsTrick's AI Face Swap Online Tool?</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+              With PicsTrick's AI Face Swap Online Tool, you can swap faces for photos including JPEG, PNG, GIF, and other image formats. The credits will be refunded automatically if a swap fails.
+            </p>
+          </div>
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">2. How Does a Monthly, Half-yearly, or Yearly Subscription Differ?</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+              Each month there is a subscription charge, every six months there is a half-year subscription charge, and every year there is a yearly subscription charge.
+            </p>
+          </div>
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">3. What Do You Mean by the "Free Trial" Version?</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+               Free face swapping of 10 photos can be done with 10 credits.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-box">
+          <div class="footer-left">
+            <div>Best Online Face Swapper Free from</div>
+            <div>PicsTrick</div>
+            <div class="copyright">© 2024 picstrick</div>
+          </div>
+          <div class="footer-right">
+            <div class="resource">
+              <p>Resource</p>
+              <p><a href="./resource/make-your-deepfake-2">How To Make Your Own Deepfake in 2024</a></p>
+              <p><a href="./resource/Top-10-Free-Face-Swapper-Tools">Top10 Free Face Swapper Tools</a></p>
+ <p><a href="./resource/best-vpns-in-uae-1">Top 6 Dubai VPNs In UAE</a></p>
+            </div>
+            <div class="support">
+              <p>Support</p>
+              <p><a href="./contactus">Contact us</a></p>
+              <p><a href="./aboutus">About the Team</a></p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-register hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-register">
+          <div class="close-icon close-icon-register"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-register">
+            <h4>Sign with your email</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="register-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input type="password"
+                placeholder="Password"
+                name="password"
+                class="register-password"
+              />
+              <input
+                type="password"
+                placeholder="repassword"
+                name="repassword"
+                class="register-repassword"
+              />
+              <input
+              type="email"
+              placeholder="giveaway code(Not required)"
+              name="code"
+              class="register-code"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Sign up" class="register-submit" />
+              <span>Already have an account?    <a class="sign-in"><font color="blue">Login</font></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-login hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-login">
+          <div class="close-icon close-icon-login"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="login-email"
+              />
+              <span class="error-text-email hidden" id="email">email error!</span>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                class="login-password"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Login" class="login-submit" />
+                            <span><br>Don't have an account?    <a class="register"><font color="blue">Register here</font></a>
+                <br><br>
+                Forget your password?    <a class="find-passwd"><font color="blue">Retrieve password</font><br>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-passwd hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-passwd">
+          <div class="close-icon close-icon-passwd"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-passwd">
+            <h4>Submit Email and UUid for Retrieve password</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="passwd-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input
+              type="text"
+              placeholder="uuid you receive in you email"
+              name="uuid"
+              class="passwd-uuid"
+            />
+              <span class="error-text hidden" id="password">uuid should not be null</span>
+              <input type="submit" value="Retrieve password" class="passwd-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="popup-container popup-container-active hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-active"></div>
+          <div class="popup-left">
+            <img src="../static/img/active.png" alt="" height="160" width="160"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="text"
+                placeholder="your license code"
+                name="email"
+                class="active-code"
+              />
+              <span class="error-text-email hidden" id="email">license error!</span>
+              <input type="submit" value="Active" class="active-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/jquery.2.1.4.min.js"></script>
+  <script>
+    const faq = document.getElementsByClassName("faq-list-item");
+
+    for (let i = 0; i < faq.length; i++) {
+      faq[i].onclick = (e) => {
+        const p = faq[i].children[1];
+        const arrow = faq[i].children[0].children[1];
+        const title = faq[i].children[0].children[0];
+        if (p.classList.contains("hidden")) {
+          p.classList.remove("hidden");
+          arrow.classList.add("arrow-up");
+          arrow.classList.remove("arrow-down");
+          title.classList.add("title-bule");
+        } else {
+          p.classList.add("hidden");
+          arrow.classList.add("arrow-down");
+          arrow.classList.remove("arrow-up");
+          title.classList.remove("title-bule");
+        }
+      };
+    }
+    
+  </script>
+</html>

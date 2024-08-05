@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/common.css" />
+    <title>PicStrick's AI Face Swapper Pricelist</title>
+    <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/common.css" />
+       <!-- <script 
+        src="https://www.paypal.com/sdk/js?client-id=CLIENT_ID&components=messages,buttons"
+        data-namespace="PayPalSDK"> 
+        </script>-->
     <style>
       .price {
         height: auto;
@@ -20,7 +25,7 @@
         padding: 0 20px 30px 20px;
         border-radius: 5px;
       }
-
+      
       .price-item-active {
         background: linear-gradient(to bottom, #fffeda, #fff08c);
       }
@@ -140,44 +145,56 @@
   <body>
     <div class="content">
       <div class="nav-container">
-        <div class="logo">logo</div>
+        <div class="logo"></div>
         <div class="nav-mian">
-          <div class="nav-mian-item">
-            <span class="nav-mian-click">Free Face Swap</span>
-          </div>
-          <div class="nav-mian-item">
-            <span class="nav-mian-click">Mutiple Faces</span>
-          </div>
+ 
+            <!-- <div class="nav-mian-active">
+              <span class="nav-mian-click" id="face-swap-one">Free Face Swap</span>
+            </div> -->
+            <div class="nav-mian-item">
+              <span class="nav-mian-click" id="face-swap">Free Face Swap</span>
+            </div>
           <div class="nav-mian-item">
             <div class="tooltip">
               <div class="utility-box">
                 <div class="utility-title nav-mian-click">Utility</div>
               </div>
               <span class="tooltiptext utility">
-                <div>Free Picture Compressor</div>
-                <div>Free Picture Editor</div>
-                <div>Free Video Editor</div>
+                <div id="pic-compress">Free Photo Compressor</div>
+                <br>
+                <div id="pic-editor">Free Photo Enhancer</div>
+                <br>
+                <!-- <div id="video-editor">Free Video Editor</div> -->
               </span>
             </div>
           </div>
-          <div class="nav-mian-item">
-            <span class="pricing nav-mian-click">pricing</span>
+          <div class="nav-mian-active">
+            <span class="pricing nav-mian-click" id="to-pricing">Pricing</span>
           </div>
           <div class="nav-mian-item">
-            <span class="nav-mian-click">about</span>
+            <span class="nav-mian-click" id="to-about">About</span>
           </div>
           <div class="nav-mian-item">
-            <span class="nav-mian-click">contact us</span>
+            <span class="nav-mian-click" id="to-contack-us">Contact Us</span>
           </div>
         </div>
+
         <div class="nav-right">
-          <span class="login">Login</span>
+          <div class="tooltip">
+            <div class="keyactive">
+              <!-- <img src="../static/img/active.png" alt=""  width="30" height="30" /> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <span class="login"><font color="blue">Login</font></span>
           <div class="tooltip">
             <div class="profile hidden">
-              <img src="../static/profile.png" alt="" />
+              <img src="../static/img/profile.png" alt=""  width="40" height="40" />
             </div>
             <span class="tooltiptext">
-              <div>Credits: 0</div>
+              <div id="profile-credits" class="profile-credits">Credits: {{credits}}</div>
               <div class="profile-sign-out">Sign out</div>
             </span>
           </div>
@@ -185,7 +202,7 @@
       </div>
       <div class="price">
         <div class="price-item">
-          <div class="type">Free Trial</div>
+          <div class="type" >Free Trial</div>
           <div class="credit">10 Credits</div>
           <div class="price-detail">
             <div>
@@ -194,7 +211,7 @@
             </div>
             <div>Time-limited Offer</div>
           </div>
-          <div class="price-btn">Free to Use</div>
+          <div class="price-btn" id="price-type0">Free to Use</div>
           <div class="price-desc">
             <div>10 photos to swap face for 100% free.</div>
             <div>Supports multiple faces swap.</div>
@@ -203,16 +220,16 @@
           </div>
         </div>
         <div class="price-item price-item-active">
-          <div class="type">Yearly</div>
-          <div class="credit">Unlimited Credits</div>
+          <div class="type">Ultimate Mode</div>
+          <div class="credit">3000 Credits</div>
           <div class="price-detail">
             <div>
               <span>$</span>
-              <span>59.99</span>
+              <span>49.99</span>
             </div>
-            <div>$159.99(63% OFF)</div>
+            <div>$159.99(69% OFF)</div>
           </div>
-          <div class="price-btn">Subscribe</div>
+          <div class="price-btn" id="price-type1">Subscribe</div>
           <div class="price-desc">
             <div>Offers unlimited credits while your subscription is active.</div>
             <div>Unlimited photos to swap face.</div>
@@ -225,16 +242,16 @@
           </div>
         </div>
         <div class="price-item">
-          <div class="type">Half-Yearly</div>
-          <div class="credit">Unlimited Credits</div>
+          <div class="type">Pro Mode</div>
+          <div class="credit">600 Credits</div>
           <div class="price-detail">
             <div>
               <span>$</span>
-              <span>29.99</span>
+              <span>19.99</span>
             </div>
-            <div>$79.50(63% OFF)</div>
+            <div>$69.99(71% OFF)</div>
           </div>
-          <div class="price-btn">Subscribe</div>
+          <div class="price-btn" id="price-type2">Subscribe</div>
           <div class="price-desc">
             <div>Offers unlimited credits while your subscription is active.</div>
             <div>Unlimited photos to swap face.</div>
@@ -247,8 +264,8 @@
           </div>
         </div>
         <div class="price-item">
-          <div class="type">Monthly</div>
-          <div class="credit">Unlimited Credits</div>
+          <div class="type">Standard Mode</div>
+          <div class="credit">100 Credits</div>
           <div class="price-detail">
             <div>
               <span>$</span>
@@ -256,7 +273,7 @@
             </div>
             <div></div>
           </div>
-          <div class="price-btn">Subscribe</div>
+          <div class="price-btn" id="price-type3">Subscribe</div>
           <div class="price-desc">
             <div>Offers unlimited credits while your subscription is active.</div>
             <div>Unlimited photos to swap face.</div>
@@ -299,8 +316,42 @@
                Free face swapping of 10 photos can be done with 10 credits.
             </p>
           </div>
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">4. Is it a monthly subscription?</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+              It is a one-time payment, not a monthly subscription
+            </p>
+          </div>
         </div>
       </div>
+
+      <div class="faq">
+        <div class="title">Refund Policy FAQs</div>
+        <div class="faq-list">
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">1. You will be responsible for the return shipping charges</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+              If we have refunds agreements, you will be responsible for the return shipping charges. The balance will be refunded back to you after we receive the items.
+            </p>
+          </div>
+          <div class="faq-list-item">
+            <div class="faq-list-line">
+              <div class="faq-list-title">2. How to get 100% refund?</div>
+              <div class="faq-list-arrow arrow-down"></div>
+            </div>
+            <p class="hidden">
+              If the return is caused by the product quality or the mistake from us, you will be guaranteed to get 100% refund.
+            </p>
+          </div>
+        </div>
+      </div>
+      
       <div class="footer">
         <div class="footer-box">
           <div class="footer-left">
@@ -311,13 +362,14 @@
           <div class="footer-right">
             <div class="resource">
               <p>Resource</p>
-              <p>Top 10 Free Face Swapper Tools for 2024</p>
-              <p>Best 10 Free Undress Online Websites in 2024</p>
+              <p><a href="./resource/make-your-deepfake-2">How To Make Your Own Deepfake in 2024</a></p>
+              <p><a href="./resource/Top-10-Free-Face-Swapper-Tools">Top10 Free Face Swapper Tools</a></p>
+ <p><a href="./resource/best-vpns-in-uae-1">Top 6 Dubai VPNs In UAE</a></p>
             </div>
             <div class="support">
               <p>Support</p>
-              <p>Contact us</p>
-              <p>About the Team</p>
+              <p><a href="./contactus">Contact us</a></p>
+              <p><a href="./aboutus">About the Team</a></p>
             </div>
             </div>
           </div>
@@ -328,21 +380,38 @@
         <div class="popup popup-register">
           <div class="close-icon close-icon-register"></div>
           <div class="popup-left">
-            <img src="../static/login.png" alt="" />
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
           </div>
           <div class="form form-register">
-            <h4>Sign in with your email</h4>
+            <h4>Sign with your email</h4>
             <div>
               <input
                 type="email"
-                placeholder="email address"
+                placeholder="Email address"
                 name="email"
                 class="register-email"
               />
+              <span class="error-text hidden">email error</span>
+              <input type="password"
+                placeholder="Password"
+                name="password"
+                class="register-password"
+              />
+              <input
+                type="password"
+                placeholder="repassword"
+                name="repassword"
+                class="register-repassword"
+              />
+              <input
+              type="email"
+              placeholder="giveaway code(Not required)"
+              name="code"
+              class="register-code"
+              />
+              <span class="error-text hidden" id="password">password error</span>
               <input type="submit" value="Sign up" class="register-submit" />
-              <span
-                >Already have an account?<a class="sign-in">Sign in</a></span
-              >
+              <span>Already have an account?    <a class="sign-in"><font color="blue">Login</font></a></span>
             </div>
           </div>
         </div>
@@ -352,31 +421,110 @@
         <div class="popup popup-login">
           <div class="close-icon close-icon-login"></div>
           <div class="popup-left">
-            <img src="../static/login.png" alt="" />
+            <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300"/>
           </div>
           <div class="form">
-            <h4>Welcome to xxxx</h4>
+            <h3>Welcome to PicsTrick!</h3>
             <div>
               <input
                 type="email"
-                placeholder="email address"
+                placeholder="Email address"
                 name="email"
                 class="login-email"
               />
+              <span class="error-text-email hidden" id="email">email error!</span>
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 name="password"
-                class="password"
+                class="login-password"
               />
-              <input type="submit" value="Sign in" class="login-submit" />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Login" class="login-submit" />
+                            <span><br>Don't have an account?    <a class="register"><font color="blue">Register here</font></a>
+                <br><br>
+                Forget your password?    <a class="find-passwd"><font color="blue">Retrieve password</font><br>
+              </span>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="popup-container popup-container-passwd hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-passwd">
+          <div class="close-icon close-icon-passwd"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-passwd">
+            <h4>Submit Email and UUid for Retrieve password</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="passwd-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input
+              type="text"
+              placeholder="uuid you receive in you email"
+              name="uuid"
+              class="passwd-uuid"
+            />
+
+              <span class="error-text hidden" id="password">uuid should not be null</span>
+              <input type="submit" value="Retrieve password" class="passwd-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-active hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-active"></div>
+          <div class="popup-left">
+            <img src="../static/img/active.png" alt="" height="200" width="200"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="text"
+                placeholder="your license code"
+                name="email"
+                class="active-code"
+              />
+              <span class="error-text-email hidden" id="email">license error!</span>
+              <input type="submit" value="Active" class="active-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-pay hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-pay"></div>
+          <div class="form">
+            <h4>Please chose your pay!</h4>
+            <div>
+              <input type="hidden" name="is_paying" id="is_paying" value="False"/> 
+              <input type="hidden" name="order_type" id="order_type" value="type0"/> 
+              <input type="image" src="../static/img/paypal.png" value="Paypal" class="active-submit" id="paypal-submit" />
+              <input type="image" src="../static/img/visa.png" value="VisaCard" class="active-submit" id="visa-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
-  <script src="../static/common.js"></script>
+  <script src="../static/js/jquery.2.1.4.min.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/pay.js"></script>
   <script>
     const faq = document.getElementsByClassName("faq-list-item");
 
@@ -399,4 +547,63 @@
       };
     }
   </script>
+{% if isLogin %}
+<script>
+
+  function show(e) {
+    if (e && e.classList) {
+      e.classList.remove("hidden");
+    }
+  }
+
+  function hidden(e) {
+    if (e && e.classList) {
+      e.classList.add("hidden");
+    }
+  }
+  signIn = document.querySelector(".sign-in") || {};
+  registerSubmit = document.querySelector(".register-submit") || {};
+  loginSubmit = document.querySelector(".login-submit") || {};
+  login = document.querySelector(".login") || {};
+  profile = document.querySelector(".profile") || {};
+  credits = document.querySelector(".profile-credits") || {};
+  signOut = document.querySelector(".profile-sign-out") || {};
+  popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+  hidden(login);
+  hidden(popupContaineLogin);
+  show(profile);
+  document.getElementById("profile-credits").innerHTML="credits:"+"{{credits}}"
+  show(credits)
+  show(signOut);
+</script>
+{% else %}
+<script>
+
+ function show(e) {
+    if (e && e.classList) {
+      e.classList.remove("hidden");
+    }
+ }
+
+ function hidden(e) {
+    if (e && e.classList) {
+      e.classList.add("hidden");
+    }
+ }
+ signIn = document.querySelector(".sign-in") || {};
+ registerSubmit = document.querySelector(".register-submit") || {};
+ loginSubmit = document.querySelector(".login-submit") || {};
+ login = document.querySelector(".login") || {};
+ profile = document.querySelector(".profile") || {};
+ credits = document.querySelector(".profile-credits") || {};
+ signOut = document.querySelector(".profile-sign-out") || {};
+ popupContaineRegister = document.querySelector(".popup-container-register") || {};
+ popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+ show(login);
+ hidden(profile);
+ hidden(popupContaineRegister);
+</script>
+{% endif %}
 </html>

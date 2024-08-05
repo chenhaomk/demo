@@ -1,0 +1,150 @@
+.banner-title {
+  display: flex;
+  padding: 60px 0 20px 0;
+}
+
+.banner-title span {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 5px;
+}
+
+.banner-title span:first-child {
+  background-color: #ff3d00;
+  color: white;
+}
+
+.banner-connet {
+  display: flex;
+}
+
+.banner-left {
+  flex: 0 0 50%;
+  background-image: url("../imgs/how-to/1-1.png");
+  height: 375px;
+  position: relative;
+  cursor: pointer;
+}
+
+.banner-right {
+  flex: 0 0 50%;
+}
+
+.banner-right .banner-list {
+  padding-left: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.banner-right .banner-list .banner-list-item {
+  flex: 0 0 calc(50% - 10px);
+  height: 182.5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.banner-right .banner-list .banner-list-item img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.technology {
+  padding-top: 50px;
+}
+
+.technology-last {
+  margin-bottom: 50px;
+}
+
+.widget__title-text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  /* text-transform: uppercase; */
+}
+.technology .technology-title {
+  position: relative;
+  font-size: 1rem;
+  height: auto;
+}
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+
+.technology-list-item {
+  flex: 0 0 33.33%;
+  display: flex;
+  /* gap: 0 20px; */
+}
+
+.technology-list-item-left {
+  flex: 0 0 40%;
+}
+
+.technology-list-item-left img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.technology-list-item-right {
+  flex: 0 0 calc(60% - 20px);
+  margin-left: 20px;
+}
+
+.mobile {
+  margin-top: 30px;
+  padding-top: 20px;
+  background-color: #fdf4fb;
+}
+
+.mobile-classify {
+  display: flex;
+  gap: 0 20px;
+}
+
+.mobile-classify-left {
+  flex: 0 0 50%;
+}
+
+.mobile-classify-left h4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.mobile-classify-left img {
+  height: 400px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mobile-classify-right {
+  flex: 0 0 50%;
+}
+
+.mobile-classify-right-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.mobile-classify-right-item-left {
+  flex: 0 0 40%;
+  height: 163px;
+}
+
+.mobile-classify-right-item-left img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.mobile-classify-right-item-right {
+  margin-left: 20px;
+  flex: 0 0 calc(60% - 20px);
+}

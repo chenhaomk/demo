@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="google-site-verification" content="UaSboBFk5nLYmH1jMt2rfHk-1B2k9E-nHY1odKtU7_U" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/common.css" />
+    <title>PicsTrick | Free and Reliable Online Face Swapper and All-in-One Image Toolkit</title>
+    <meta name="description" content="PicsTrick's all-in-one online image toolkit includes a free AI Face Swapper online tool which allows you to change faces in photos for 100% free, a image compressor which compresses face swapped photos into a reduced size with no quality loss, and an image editor to refine photos in seconds.'">
+    <meta name="keywords" content="free face swapper, free ai face swapper, face swapping free, online face swap, free image compressor, compress png, free online image editor">
+    <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/common.css" />
     <style>
       .logo {
         flex-basis: auto;
@@ -55,8 +59,8 @@
         width: 650px;
       }
       .banner-right img {
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 90%;
       }
 
       .desc {
@@ -98,11 +102,16 @@
         flex: 0 0 calc(50% - 50px);
       }
       .list .item img {
+        object-fit: cover;
         width: 100%;
-        height: 270px;
+        height: 100%;
       }
+      .list .item .p {
+        text-align: left;
+      }
+
       .list .item h4 {
-        padding: 4px 0 12px;
+        padding: 4px 0px 12px;
         font-size: 20px;
         vertical-align: text-bottom;
         color: #000;
@@ -161,13 +170,13 @@
   <body>
     <div class="content">
       <div class="nav-container">
-        <div class="logo">logo</div>
+        <div class="logo"></div>
         <div class="nav-mian">
+          <!-- <div class="nav-mian-item">
+            <span class="nav-mian-click" id="face-swap-one"></span>
+          </div> -->
           <div class="nav-mian-item">
-            <span class="nav-mian-click">Free Face Swap</span>
-          </div>
-          <div class="nav-mian-item">
-            <span class="nav-mian-click">Mutiple Faces</span>
+            <span class="nav-mian-click" id="face-swap">Free Face Swap</span>
           </div>
           <div class="nav-mian-item">
             <div class="tooltip">
@@ -175,31 +184,40 @@
                 <div class="utility-title nav-mian-click">Utility</div>
               </div>
               <span class="tooltiptext utility">
-                <div>Free Picture Compressor</div>
-                <div>Free Picture Editor</div>
-                <div>Free Video Editor</div>
+                <div id="pic-compress">Free Photo Compressor</div>
+                <br>
+                <div id="pic-editor">Free Photo Enhancer</div>
+                <br>
+                <!-- <div id="video-editor">Free Video Editor</div> -->
               </span>
             </div>
           </div>
           <div class="nav-mian-item">
-            <span class="pricing nav-mian-click">pricing</span>
+            <span class="pricing nav-mian-click" id="to-pricing">Pricing</span>
           </div>
           <div class="nav-mian-item">
-            <span class="nav-mian-click">about</span>
+            <span class="nav-mian-click" id="to-about">About</span>
           </div>
           <div class="nav-mian-item">
-            <span class="nav-mian-click">contact us</span>
+            <span class="nav-mian-click" id="to-contack-us">Contact Us</span>
           </div>
         </div>
         <div class="nav-right">
-          <span class="login">Login</span>
+          <div class="tooltip">
+            <div class="keyactive">
+              <!-- <img src="../static/img/active.png" alt=""  width="30" height="30" /> -->
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <span class="login"><font color="blue">Login</font></span>
 
           <div class="tooltip">
             <div class="profile hidden">
-              <img src="../static/profile.png" alt="" />
+              <img src="../static/img/profile.png" alt=""  width="40" height="40" />
             </div>
             <span class="tooltiptext">
-              <!--<div>Credits: 0</div>-->
+              <div id="profile-credits" class="profile-credits">Credits: {{credits}}</div>
               <div class="profile-sign-out">Sign out</div>
             </span>
           </div>
@@ -220,71 +238,42 @@
             </div>
           </div>
           <div class="banner-right">
-            <img src="../static/123132.png" alt="" />
+            <img src="../static/img/ads.png" alt="free online face swapper"  height="180" width="200"/>
           </div>
         </div>
       </div>
       <div class="list">
         <div class="item">
-          <img src="../static/item.png" alt="" />
+          <img src="../static/img/index_compress.png" alt="free online image compressor" />
           <div class="item-desc">
             <h4>Free Online Image Compressor</h4>
             <div>
               Compresss image files or reduces image size wihout any quality loss. Compressing PNG, JPG, GIF, WebP online in seconds is so simple.
             </div>
             <div class="item-btn detail-btn">
-              <span class="detail-btn-text"> Learn More</span>
+              <span class="detail-btn-text"> <a href="./topiccompress">Learn More</a></span>
               <span>
-                <div class="detail-arrow"></div>
+                <a href="./topiccompress"><div class="detail-arrow"></div></a>
               </span>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="../static/item.png" alt="" />
+          <img src="../static/img/index_img_editor.png" alt="free online image editor" />
           <div class="item-desc">
             <h4>Free Online Photo Editor</h4>
             <div>
               The all-in-one free online photo editor lets you edit your photos and add photo effects, text, graphics, and much more!
             </div>
             <div class="item-btn detail-btn">
-              <span class="detail-btn-text"> Learn More</span>
+              <span class="detail-btn-text"><a href="./topiceditor"> Learn More</a></span>
               <span>
-                <div class="detail-arrow"></div>
+                <a href="./topiceditor"><div class="detail-arrow"></div></a>
               </span>
             </div>
           </div>
         </div>
-        <div class="item">
-          <img src="../static/item.png" alt="" />
-          <div class="item-desc">
-            <h4>Free Online Video Editor</h4>
-            <div>
-              Create amazing videos with an easy video editor with pro features and designer templates. Trim and crop videos, add video effects, and rotate videos. 
-            </div>
-            <div class="item-btn detail-btn">
-              <span class="detail-btn-text"> Learn More</span>
-              <span>
-                <div class="detail-arrow"></div>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="../static/item.png" alt="" />
-          <div class="item-desc">
-            <h4>Free Undress AI Tool</h4>
-            <div>
-              Looking for a Free AI Clothes Remover? The Undress App can help you undress someone. The online undress AI tool enables you to swap a face onto anybody. No Photoshop skills or any other software tools are required.
-            </div>
-            <div class="item-btn detail-btn">
-              <span class="detail-btn-text"> Learn More</span>
-              <span>
-                <div class="detail-arrow"></div>
-              </span>
-            </div>
-          </div>
-        </div>
+
       </div>
       <div class="footer">
         <div class="footer-box">
@@ -296,13 +285,14 @@
           <div class="footer-right">
             <div class="resource">
               <p>Resource</p>
-              <p>Top 10 Free Face Swapper Tools for 2024</p>
-              <p>Best 10 Free Undress Online Websites in 2024</p>
+              <p><a href="./resource/make-your-deepfake-2">How To Make Your Own Deepfake in 2024</a></p>
+              <p><a href="./resource/Top-10-Free-Face-Swapper-Tools">Top10 Free Face Swapper Tools</a></p>
+ <p><a href="./resource/best-vpns-in-uae-1">Top 6 Dubai VPNs In UAE</a></p>
             </div>
             <div class="support">
               <p>Support</p>
-              <p>Contact us</p>
-              <p>About the Team</p>
+              <p><a href="./contactus">Contact us</a></p>
+              <p><a href="./aboutus">About the Team</a></p>
             </div>
             </div>
           </div>
@@ -313,24 +303,38 @@
         <div class="popup popup-register">
           <div class="close-icon close-icon-register"></div>
           <div class="popup-left">
-            <img src="../static/login.png" alt="" />
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
           </div>
           <div class="form form-register">
-            <h4>Sign in with your email</h4>
+            <h4>Sign with your email</h4>
             <div>
               <input
                 type="email"
-                placeholder="email address"
+                placeholder="Email address"
                 name="email"
                 class="register-email"
               />
               <span class="error-text hidden">email error</span>
+              <input type="password"
+                placeholder="Password"
+                name="password"
+                class="register-password"
+              />
+              <input
+                type="password"
+                placeholder="repassword"
+                name="repassword"
+                class="register-repassword"
+              />
+              <input
+              type="email"
+              placeholder="giveaway code(Not required)"
+              name="code"
+              class="register-code"
+              />
+              <span class="error-text hidden" id="password">password error</span>
               <input type="submit" value="Sign up" class="register-submit" />
-              <span
-                >Already have an account?<a class="sign-in"
-                  ><font color="blue">Sign in</font></a
-                ></span
-              >
+              <span>Already have an account?    <a class="sign-in"><font color="blue">Login</font></a></span>
             </div>
           </div>
         </div>
@@ -340,36 +344,150 @@
         <div class="popup popup-login">
           <div class="close-icon close-icon-login"></div>
           <div class="popup-left">
-            <img src="../static/login.png" alt="" />
+            <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300"/>
           </div>
           <div class="form">
-            <h4>Welcome to picstrick!</h4>
+            <h3>Welcome to PicsTrick!</h3>
             <div>
               <input
                 type="email"
-                placeholder="email address"
+                placeholder="Email address"
                 name="email"
                 class="login-email"
               />
-              <span class="error-text-email hidden" id="email"
-                >email error!</span
-              >
+              <span class="error-text-email hidden" id="email">email error!</span>
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 name="password"
-                class="password"
+                class="login-password"
               />
-              <span class="error-text hidden" id="password"
-                >password error</span
-              >
-              <input type="submit" value="Sign in" class="login-submit" />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Login" class="login-submit" /> <br>
+              <span><br>Don't have an account?    <a class="register"><font color="blue">Register here</font></a>
+                <br><br>
+                Forget your password?    <a class="find-passwd"><font color="blue">Retrieve password</font><br>
+              </span>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="popup-container popup-container-passwd hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-passwd">
+          <div class="close-icon close-icon-passwd"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-passwd">
+            <h4>Submit Email and UUid for Retrieve password</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="passwd-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input
+              type="text"
+              placeholder="uuid you receive in you email"
+              name="uuid"
+              class="passwd-uuid"
+            />
+
+              <span class="error-text hidden" id="password">uuid should not be null</span>
+              <input type="submit" value="Retrieve password" class="passwd-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-active hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-active"></div>
+          <div class="popup-left">
+            <img src="../static/img/active.png" alt="" height="200" width="200"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="text"
+                placeholder="your license code"
+                name="email"
+                class="active-code"
+              />
+              <span class="error-text-email hidden" id="email">license error!</span>
+              <input type="submit" value="Active" class="active-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="../static/common.js"></script>
+  <script src="../static/js/jquery.2.1.4.min.js"></script>
+  <script src="../static/js/common.js"></script>
+ {% if isLogin %}
+ <script>
+
+   function show(e) {
+     if (e && e.classList) {
+       e.classList.remove("hidden");
+     }
+   }
+
+   function hidden(e) {
+     if (e && e.classList) {
+       e.classList.add("hidden");
+     }
+   }
+   signIn = document.querySelector(".sign-in") || {};
+   registerSubmit = document.querySelector(".register-submit") || {};
+   loginSubmit = document.querySelector(".login-submit") || {};
+   login = document.querySelector(".login") || {};
+   profile = document.querySelector(".profile") || {};
+   credits = document.querySelector(".profile-credits") || {};
+   signOut = document.querySelector(".profile-sign-out") || {};
+   popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+   hidden(login);
+   hidden(popupContaineLogin);
+   show(profile);
+   document.getElementById("profile-credits").innerHTML="credits:"+"{{credits}}"
+   show(credits)
+   show(signOut);
+ </script>
+{% else %}
+<script>
+
+  function show(e) {
+     if (e && e.classList) {
+       e.classList.remove("hidden");
+     }
+  }
+
+  function hidden(e) {
+     if (e && e.classList) {
+       e.classList.add("hidden");
+     }
+  }
+  signIn = document.querySelector(".sign-in") || {};
+  registerSubmit = document.querySelector(".register-submit") || {};
+  loginSubmit = document.querySelector(".login-submit") || {};
+  login = document.querySelector(".login") || {};
+  profile = document.querySelector(".profile") || {};
+  credits = document.querySelector(".profile-credits") || {};
+  signOut = document.querySelector(".profile-sign-out") || {};
+  popupContaineRegister = document.querySelector(".popup-container-register") || {};
+  popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+  show(login);
+  hidden(profile);
+  hidden(popupContaineRegister);
+</script>
+{% endif %}
 </html>

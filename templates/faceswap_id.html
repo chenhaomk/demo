@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PicStrick</title>
+    <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/swiper.min.css" />
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <style>
+      .detail-banner {
+        background-color: #f8f9fe;
+        height: auto;
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .detail-banner h2 {
+        font-size: 40px;
+        font-weight: 800;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .detail-banner p {
+        color: #666669;
+        margin-bottom: 20px;
+      }
+      .detail-banner ul {
+        margin: 0 auto;
+        width: 500px;
+        list-style-type: none;
+        display: flex;
+        padding: 6px;
+        background-color: #e3e3e3;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 20px;
+        gap: 0 6px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .detail-banner ul li {
+        flex: 0 0 calc(33% - 6px);
+        border-radius: 14px;
+        color: #3d4e66;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .detail-banner ul .li-active {
+        background-color: #0e45f5;
+        color: white;
+      }
+      .tab-content1 {
+        overflow: hidden;
+      }
+      .step-box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        /* overflow: hidden; */
+        height: auto;
+        align-items: baseline;
+      }
+      .step-item {
+        flex: 0 0 calc(33.33% - 21px);
+        border-right: 1px solid #96aec4;
+        padding: 0 10px;
+        margin-bottom: 40px;
+      }
+      .step-box div:last-child {
+        border-right: none;
+      }
+      .step-item span {
+        color: #0e45f5;
+      }
+      .step-title {
+        font-weight: 600;
+        padding-bottom: 30px;
+      }
+      .step-btn {
+        width: 160px;
+        height: 38px;
+        line-height: 38px;
+        background-color: #0e45f5;
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .step-pic {
+        width: 80px;
+        height: 80px;
+        line-height: 38px;
+        background-color: white;
+        margin: 0 auto;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .download-multi-swap {
+        width: 20px;
+        height: 20px;
+        line-height: 38px;
+        background-color: white;
+        margin: 0 auto;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .step-btn {
+        width: 160px;
+        height: 38px;
+        line-height: 38px;
+        background-color: #0e45f5;
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+
+      .step-item p {
+        text-align: center;
+        color: #96aec4;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .step-img-box {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .step-img-box img {
+        width: 290px;
+        height: 400px;
+      }
+
+      .carousel {
+        width: 1170px;
+        height: 350px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .contain {
+        display: flex;
+        width: 4500px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .btn {
+        width: 150px;
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        left: 375px;
+        bottom: 10px;
+      }
+
+      .btn span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border: 3px solid white;
+        border-radius: 50%;
+      }
+
+      .carousel a {
+        text-decoration: none;
+        font-size: 50px;
+        color: white;
+        position: absolute;
+        top: 35%;
+      }
+
+      .carousel a:nth-of-type(1) {
+        left: 10px;
+      }
+
+      .carousel a:nth-of-type(2) {
+        right: 10px;
+      }
+
+      #comment-box {
+        position: relative;
+        height: auto;
+        padding: 0 200px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        /* overflow: hidden; */
+      }
+      .comment-sd {
+        width: calc(100% - 200px);
+        padding: 0 100px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+      }
+      .comment {
+        /* width: 50%; */
+        flex: 0 0 calc(50% - 10px);
+        /* position: absolute; */
+        /* width: 100%; */
+        display: none;
+      }
+      .comment.active {
+        display: block;
+      }
+      .comment-item {
+        text-align: center;
+        padding: 0 20px;
+      }
+      .comment-item img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      .comment-item p {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 24px;
+        padding: 0 20px;
+      }
+      .comment-sd a {
+        text-decoration: none;
+        font-size: 50px;
+        color: #e3e3e3;
+        position: absolute;
+        top: 28%;
+        width: 40px;
+        height: 40px;
+      }
+
+      .comment-sd a:nth-of-type(1) {
+        left: 10px;
+      }
+
+      .comment-sd a:nth-of-type(2) {
+        right: 10px;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+          center 50%/50% 50% no-repeat;
+      }
+      .tab-content2 {
+        height: auto;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+      .content2-left {
+        float: left;
+        width: 40%;
+      }
+      .content2-right {
+        float: right;
+        width: 60%;
+        height: 468px;
+      }
+      .content2-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .content2-step {
+        border: 0;
+      }
+      .detail-step-profile {
+        max-width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+      .detail-step-profile img {
+        width: 60%;
+        height: 100%;
+        vertical-align: middle;
+        object-fit: cover;
+      }
+
+      .share-button-profile {
+        max-width: 100%;
+        height: 260px;
+        text-align: center;
+      }
+      .share-button-profile a {
+        width: 60%;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .step-profile-list {
+        margin-top: 5px;
+        max-width: 380px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .step-profile-list div {
+        height: 48px;
+        width: 48px;
+        padding: 8px;
+        padding-right: 0;
+      }
+
+      .step-profile-list img {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .step-profile-btn {
+        display: flex;
+        padding: 22px 2px 0 0;
+        gap: 0 16px;
+      }
+      .step-profile-btn div {
+        color: #111115;
+        cursor: pointer;
+        flex: 0 0 calc(33.33% - 16px);
+        text-align: center;
+        border: 1px solid #111115 !important;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 12px;
+        margin-left: 16px;
+      }
+      .step-profile-btn div:first-child {
+        margin-left: 130px;
+      }
+
+      .pc-banner {
+        background: url(../static/img/top_slick_cover_bg01.png) no-repeat center top/100% auto;
+        width: 100%;
+        /* float: left; */
+        min-width: 300px;
+        max-width: 1170px;
+        margin: 0 auto;
+        position: relative;
+      }
+      @media screen and (max-width: 668px) {
+        .pc-banner {
+          background-size: auto 100%;
+        }
+      }
+
+      .swiper-container {
+        width: 100%;
+        /* margin: 35px 0; */
+        background: rgba(0, 0, 0, 0.7);
+        padding: 50px 0;
+      }
+
+      .swiper-slide-next,
+      .swiper-slide-prev {
+        opacity: 0.6;
+        /* width: 500px !important; */
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-container {
+          margin: 20px 0 15px;
+        }
+      }
+
+      .swiper-slide {
+        -webkit-transition: transform 1s;
+        -moz-transition: transform 1s;
+        -ms-transition: transform 1s;
+        -o-transition: transform 1s;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-slide {
+          -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+        }
+      }
+      @media screen and (min-width: 1170px) {
+        .swiper-slide-active {
+          width: 756px !important;
+          height: 440px !important;
+        }
+        .swiper-slide-active a {
+          height: 100%;
+        }
+        .swiper-slide-active a img {
+          height: 100%;
+        }
+        .swiper-slide-next,
+        .swiper-slide-prev {
+          width: 500px !important;
+          height: 350px !important;
+        }
+      }
+
+      .swiper-slide-active,
+      .swiper-slide-duplicate-active {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+          -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+        }
+      }
+
+      .none-effect {
+        -webkit-transition: none;
+        -moz-transition: none;
+        -ms-transition: none;
+        -o-transition: none;
+      }
+
+      .swiper-slide a {
+        background: #fff;
+        /* padding: 10px; */
+        display: block;
+        /* border-radius: 14px; */
+      }
+
+      @media screen and (min-width: 668px) {
+        .swiper-slide a:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          box-sizing: border-box;
+          /* border: 10px solid #fff; */
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: url(../static/img/top_slick_cover_bg01.png) 0 0 repeat;
+          /* border-radius: 20px; */
+        }
+      }
+
+      .swiper-slide-active a:after {
+        background: none;
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-slide a {
+          padding: 5px;
+          border-radius: 7px;
+        }
+      }
+
+      /* @media screen and (max-width: 1170px) {
+        .swiper-slide-active {
+          width: 500px !important;
+        }
+        .swiper-slide-next,
+        .swiper-slide-pre {
+          width: 300px !important;
+        }
+      } */
+
+      .swiper-slide img {
+        width: 100%;
+        display: block;
+        height: 400px;
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-slide img {
+          border-radius: 7px;
+        }
+      }
+
+      .swiper-pagination {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .swiper-pagination-bullet {
+        background: #00a0e9;
+        margin-left: 4px;
+        margin-right: 4px;
+        width: 17px;
+        height: 17px;
+        opacity: 1;
+        margin-bottom: 4px;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: 13px;
+        height: 13px;
+        background: #fff;
+        border: 6px solid #00a0e9;
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 668px) {
+        .swiper-pagination {
+          position: relative;
+          margin-bottom: 20px;
+        }
+
+        .swiper-pagination-bullet {
+          background: #00a0e9;
+          margin-left: 2px;
+          margin-right: 2px;
+          width: 8px;
+          height: 8px;
+          margin-bottom: 2px;
+        }
+
+        .swiper-pagination-bullet-active {
+          width: 6px;
+          height: 6px;
+          background: #fff;
+          border: 3px solid #00a0e9;
+          margin-bottom: 0;
+        }
+      }
+
+      .button {
+        width: 1000px;
+        margin: 0 auto;
+        bottom: 43px;
+        /* position: relative; */
+      }
+
+      @media screen and (max-width: 668px) {
+        .button {
+          width: 70%;
+          bottom: 22px;
+        }
+      }
+
+      .button div:hover {
+        /* background-color: #2f4798; */
+      }
+
+      .swiper-button-prev,
+      .comment-prev {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l4.2%2C4.2L8.4%2C22l17.8%2C17.8L22%2C44L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+          #e3e3e3 center 50%/50% 50% no-repeat;
+      }
+
+      .swiper-button-next,
+      .comment-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+          #e3e3e3 center 50%/50% 50% no-repeat;
+      }
+      .comment-prev,
+      .comment-next {
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+      }
+      @media screen and (max-width: 668px) {
+        .button div {
+          width: 28px;
+          height: 28px;
+        }
+      }
+      /* .prev {
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l4.2%2C4.2L8.4%2C22l17.8%2C17.8L22%2C44L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+          #e3e3e3 center 50%/50% 50% no-repeat;
+      }
+      .next {
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+          #e3e3e3 center 50%/50% 50% no-repeat;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="nav-container">
+        <div class="logo"></div>
+        <div class="nav-mian">
+            <div class="nav-mian-active">
+              <span class="nav-mian-click" id="face-swap">Penukar Wajah Gratis</span>
+            </div>
+          <div class="nav-mian-item">
+            <div class="tooltip">
+              <div class="utility-box">
+                <div class="utility-title nav-mian-click">Alat</div>
+              </div>
+              <span class="tooltiptext utility">
+                <div id="pic-compress">Free Photo Compressor</div>
+                <br>
+                <div id="pic-editor">Free Photo Enhancer</div>
+                <br>
+                <!-- <div id="video-editor">Free Video Editor</div> -->
+              </span>
+            </div>
+          </div>
+          <div class="nav-mian-item">
+            <span class="pricing nav-mian-click" id="to-pricing">Harga</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click" id="to-about">Tentang Kami</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click" id="to-contack-us">Hubungi Kami</span>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="tooltip">
+            <div class="keyactive">
+              <!-- <img src="../static/img/active.png" alt=""  width="30" height="30" /> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <span class="login"><font color="blue">Login</font></span>
+         <div class="tooltip">
+            <div class="profile hidden">
+              <img src="../static/img/profile.png" alt=""  width="40" height="40" />
+            </div>
+            <span class="tooltiptext">
+              <div id="profile-credits" class="profile-credits">Credits: {{credits}}</div>
+              <div class="profile-sign-out">Sign out</div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-banner">
+        <h2>Penukar Wajah AI Gratis Online</h2>
+        <p>
+          Menggunakan alat penukar wajah gratis dari PicsTrick, Anda dapat menukar wajah dalam gambar apa pun yang Anda inginkan, baik itu selebriti, teman, atau bahkan imajinasi Anda. Gunakan penukar wajah AI online gratis untuk mengunggah gambar Anda sendiri atau menggunakan template yang kami sediakan untuk bersenang-senang.
+        </p>		
+        <ul class="tab">
+            <li class="li-active">Tukar Wajah</li>
+            <li>Tukar Banyak Wajah</li>
+            <li>penukar wajah video</li>
+        </ul>
+      </div>
+      <div class="tab-content1">
+        <div class="step-box">
+          <div class="step-item">
+            <div class="step-title">
+              <span>LANGKAH 1: </span> Ambil wajah dari foto ini (Gambar Dasar)
+              <input type="file" id="up-file-1" accept="image/*" style="display:none;" value="../static/img/detail_step1_profile.png"/>
+              <input type="text" id="input-filename-1"  style="display:none;" value="../static/img/source-4.jpg"/>
+            </div>
+            <div class="step-btn" id="step-btn1">Unggah Foto</div>
+            <p>Seret atau unggah foto Anda di sini</p>
+            <br><br>
+            <div>
+              <div class="detail-step-profile">
+                <img
+                  src="../static/img/source-4.jpg"
+                  alt="" 
+                  id="step1-img" 
+                  class="step1-profile" width="60" height="60"
+                />
+              </div>
+              <div class="step-profile-list step1-profile-click">
+                <div>
+                  <img src="../static/img/source-1-2.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/source-2.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/source-3.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/source-4.jpg" alt="" height="30" width="20"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>LANGKAH 2: </span> Tukar wajah dalam foto ini (Gambar Target)
+              <input type="file" id="up-file-2" accept="image/*" style="display:none;" value="../static/img/detail_step1_profile2.png"/>
+              <input type="text" id="input-filename-2"  style="display:none;" value="../static/img/target-3.jpg"/>
+            </div>
+            <div class="step-btn" id="step-btn2">Unggah Foto</div>
+            <p>Seret atau unggah foto favorit Anda di sini</p>
+            <br><br>
+            <div>
+              <div class="detail-step-profile">
+                <img
+                  src="../static/img/target-3.jpg"
+                  alt=""
+                  id="step2-img" 
+                  class="step2-profile"
+                />
+              </div>
+              <div class="step-profile-list step2-profile-click">
+                <div>
+                  <img src="../static/img/target-1.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/target-2.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/target-3.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/target-4.jpg" alt="" height="30" width="20"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>LANGKAH 3: </span> Tukar wajah yang sangat cepat dan sempurna dimulai
+              <!-- <button onclick="handleDownloadClick">Download</button> -->
+              <br/>
+            </div>
+            <div class="step-btn" id="step-btn3">Tukar Wajah Sekarang</div>
+            <div class="step-profile-btn">
+              <!-- <div>Contrast</div>
+              <div>Share</div> -->
+              <div class="share-button-profile"><a href="./baidu_jgylogo3.gif" id="download_a" download >Unduh</a></div>
+            </div>
+            <p></p>
+            <div>
+              <div class="detail-step-profile">
+                <img src="../static/img/out-1.png" id="output_img" alt="" width="60" height="60"/>
+              </div>
+              <p  style="text-align: left;font-size:12px;">*Hanya untuk hiburan pribadi. Jangan mendistribusikan atau menggunakan gambar yang dimodifikasi secara ilegal.</p>
+            </div>
+          </div>
+        </div>
+        <section class="pc-banner">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-center none-effect">
+                <a href="#"
+                  ><img src="../static/img/detail_sample_1.png"
+                /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#"
+                  ><img src="../static/img/detail_sample_2.png"
+                /></a>
+              </div>
+              <!--<div class="swiper-slide">
+                <a href="#"
+                  ><img src="../static/img/detail_sample_3.png""
+                /></a>
+              </div>-->
+              <div class="swiper-slide">
+                <a href="#"><img src="../static/img/detail_sample_4.png"/></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#"
+                  ><img src="../static/img/detail_sample_5.png""
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="button">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </section>
+
+        <div id="comment-box">
+          <div class="comment-sd">
+            <div class="comment">
+              <div class="comment-item">
+                <img src="../static/img/content1.png" alt="face swapper user review 1" />
+                <p>
+                  Saya mencoba layanan penukar wajah online dari PicsTrick. Ini bekerja dengan baik dengan foto saya. Bagian terbaiknya adalah gratis dan berkualitas tinggi!
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="../static/img/content2.png" alt="face swapper user review 2" />
+                <p>
+                  Setelah menggunakan aplikasi ini selama sekitar 6 bulan, saya benar-benar menikmatinya! Kualitas penukar wajahnya fantastis. Ini membuat orang terlihat sedikit lebih baik dalam penukar daripada kenyataannya!
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="../static/img/content3.png" alt="face swapper user review 3" />
+                <p>
+                  Alat online gratis ini membantu saya menukar wajah saya ke dalam gambar keren tanpa mengunduh aplikasi.
+                </p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-item">
+                <img src="../static/img/content4.png" alt="face swapper user review 4" />
+                <p>
+                  Sangat menyenangkan menukar wajah secara online! Saya suka menggunakannya dan hasilnya selalu lucu. Ini memiliki antarmuka pengguna yang hebat dan teknologi penukar wajah yang sangat efektif.
+                </p>
+              </div>
+            </div>
+            <!-- <div class="comment-button">
+              <div class="comment-prev prev"></div>
+              <div class="comment-next next"></div>
+            </div> -->
+            <a href="javascript:void(0);" id="prev">&lt;</a>
+            <a href="javascript:void(0);" id="next">&gt;</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content2 hidden">
+        <div class="content2-left">
+          <input type="hidden" name="is_swaping" id="is_swaping" value="False"/> 
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>LANGKAH 1:</span> Ambil wajah dari foto ini (Gambar Dasar)
+              <input type="file" id="multi-file-1" accept="image/*" style="display:none;"/>
+              <br/><br/>
+              <div class="step-pic"><img src="../static/img/source-4.jpg" id="step1-show-img"  width="60" height="60"/></div>
+            </div>
+            <div class="step-btn" id="multi-step-btn1">Unggah Foto</div>
+            <p> Seret atau unggah foto Anda di sini</p>
+          </div>
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>LANGKAH 2:</span> Tukar wajah dalam foto ini (Gambar Target)
+              <input type="file" id="multi-file-2" accept="image/*" style="display:none;"/>
+              <br/><br/>
+              <div class="step-pic"><img src="../static/img/muti-1.png" id="step2-show-img" width="60" height="60" /></div>
+            </div>
+            <div class="step-btn" id="multi-step-btn2">Unggah Foto</div>
+            <p> Seret atau unggah foto favorit Anda di sini</p>
+          </div>
+          <div class="step-item content2-step">
+            <div class="step-title">
+              <span>LANGKAH 3: </span>Tukar wajah yang sangat cepat dan sempurna dimulai
+            </div>
+            <div class="step-btn" id="multi-step-btn3">Tukar Wajah Sekarang</div>
+            <div class="step-profile-btn">
+              <!-- <div>share</div> -->
+              <div ><a href="./baidu_jgylogo3.gif" id="multi_download_a" download >Unduh</a></div>
+            </div>
+            <!-- <div id="download-multi-swap" class="download-multi-swap"><a href="./baidu_jgylogo3.gif" id="download_multi_a" download >Download</a></div> -->
+          </div>
+        </div>
+        <div class="content2-right">
+          <img src="../static/img/muti-out.jpg" id="multi-outimg" alt="" width="40" height="60"/>
+        </div>
+      </div>
+
+      <div class="tab-content3 hidden">
+        <div class="step-box">
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP1:</span> Take face from this photo(Base Image)
+              <input type="file" id="video-up-file-1" accept="image/*" style="display:none;" value="../static/img/detail_step1_profile.png"/>
+              <input type="text" id="video-input-filename-1"  style="display:none;" value=""/>
+              <input type="text" id="video-up-file-1-ok"  style="display:none;" value="false"/>
+            </div>
+            <div class="step-btn" id="video-step-btn1">Upload Photo</div>
+            <p>Drag or upload your photo here</p>
+            <br><br>
+            <div>
+              <div class="detail-step-profile">
+                <img
+                  src="../static/img/source-1-2.jpg"
+                  alt="" 
+                  id="video-step1-img" 
+                  class="video-step1-profile" width="60" height="60"
+                />
+              </div>
+              <div class="step-profile-list video-step1-profile-click">
+                <div>
+                  <img src="../static/img/source-1-2.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/source-2.jpg" alt="" height="30" width="20"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP2:</span> Swap face in this Vedio(Target Video)
+              <input type="file" id="video-up-file-2" accept="video/*" style="display:none;" value="../static/img/detail_step1_profile2.png"/>
+              <input type="text" id="video-input-filename-2"  style="display:none;" value=""/>
+              <input type="text" id="video-up-file-2-ok"  style="display:none;" value="false"/>
+            </div>
+            <div class="step-btn" id="video-step-btn2">Upload Video</div>
+            <p>Drag or upload your favorite video here(Max: 10MB)</p>
+            <br><br>
+            <div>
+              <div class="detail-step-profile">
+                <video  height="200" width="380"
+                  src="../static/img/target-1.jpg"
+                  alt=""
+                  id="video-step2-img" 
+                  class="video-step2-profile"
+                />
+              </div>
+              <div class="step-profile-list video-step2-profile-click">
+                <div>
+                  <img src="../static/img/target-1.jpg" alt="" height="30" width="20"/>
+                </div>
+                <div>
+                  <img src="../static/img/target-2.jpg" alt="" height="30" width="20"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-title">
+              <span>STEP3:</span> Ultra-Fast, Flawless Face Swapping Starts
+              <!-- <button onclick="handleDownloadClick">Download</button> -->
+              <br/>
+            </div>
+            <div class="step-btn" id="video-step-btn3">Face Swap Now</div>
+            <div class="step-profile-btn">
+              <!-- <div>Contrast</div>
+              <div>Share</div> -->
+              <div ><a href="./baidu_jgylogo3.gif" id="video_download_a" download>Download</a></div>
+            </div>
+            <p></p>
+            <div>
+              <div class="detail-step-profile">
+                <!--<video src="../static/img/out-1.png" id="video_output_img" alt="" width="60" height="60"/>-->
+                 <img src="../static/img/out-1.png" id="video_output_img" alt="" width="40" height="60"/>
+              </div>
+              <p  style="text-align: left;font-size:12px;">*Only for personal entertainment. Please do not distribute or use the modified images illegally.This will consume you 10 credits.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <div class="footer-box">
+          <div class="footer-left">
+            <div>Best Online Face Swapper Free from</div>
+            <div>PicsTrick</div>
+            <div class="copyright">© 2024 picstrick</div>
+          </div>
+          <div class="footer-right">
+            <div class="resource">
+              <p>Resource</p>
+              <p><a href="./resource/make-your-deepfake-2">How To Make Your Own Deepfake in 2024</a></p>
+              <p><a href="./resource/Top-10-Free-Face-Swapper-Tools">Top10 Free Face Swapper Tools</a></p>
+ <p><a href="./resource/best-vpns-in-uae-1">Top 6 Dubai VPNs In UAE</a></p>
+            </div>
+            <div class="support">
+              <p>Support</p>
+              <p><a href="./contactus">Contact us</a></p>
+              <p><a href="./aboutus">About the Team</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-register hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-register">
+          <div class="close-icon close-icon-register"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-register">
+            <h4>Sign with your email</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="register-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input type="password"
+                placeholder="Password"
+                name="password"
+                class="register-password"
+              />
+              <input
+                type="password"
+                placeholder="repassword"
+                name="repassword"
+                class="register-repassword"
+              />
+              <input
+              type="email"
+              placeholder="giveaway code(Not required)"
+              name="code"
+              class="register-code"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Sign up" class="register-submit" />
+              <span>Already have an account?    <a class="sign-in"><font color="blue">Login</font></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-login hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-login">
+          <div class="close-icon close-icon-login"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="login-email"
+              />
+              <span class="error-text-email hidden" id="email">email error!</span>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                class="login-password"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Login" class="login-submit" />
+                            <span><br>Don't have an account?    <a class="register"><font color="blue">Register here</font></a>
+                <br><br>
+                Forget your password?    <a class="find-passwd"><font color="blue">Retrieve password</font><br>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-passwd hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-passwd">
+          <div class="close-icon close-icon-passwd"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-passwd">
+            <h4>Submit Email and UUid for Retrieve password</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                class="passwd-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input
+              type="text"
+              placeholder="uuid you receive in you email"
+              name="uuid"
+              class="passwd-uuid"
+            />
+
+              <span class="error-text hidden" id="password">uuid should not be null</span>
+              <input type="submit" value="Retrieve password" class="passwd-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="popup-container popup-container-active hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-active"></div>
+          <div class="popup-left">
+            <img src="../static/img/active.png" alt="" height="200" width="200"/>
+          </div>
+          <div class="form">
+            <h3>Welcome to PicsTrick!</h3>
+            <div>
+              <input
+                type="text"
+                placeholder="your license code"
+                name="email"
+                class="active-code"
+              />
+              <span class="error-text-email hidden" id="email">license error!</span>
+              <input type="submit" value="Active" class="active-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../static/js/jquery.2.1.4.min.js"></script>
+  <script src="../static/js/swiper.min.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/detail.js"></script>
+
+  {% if isLogin %}
+      <script>
+        function show(e) {
+          if (e && e.classList) {
+            e.classList.remove("hidden");
+          }
+        }
+    
+        function hidden(e) {
+          if (e && e.classList) {
+            e.classList.add("hidden");
+          }
+        }
+        signIn = document.querySelector(".sign-in") || {};
+        registerSubmit = document.querySelector(".register-submit") || {};
+        loginSubmit = document.querySelector(".login-submit") || {};
+        login = document.querySelector(".login") || {};
+        profile = document.querySelector(".profile") || {};
+        credits = document.querySelector(".profile-credits") || {};
+        signOut = document.querySelector(".profile-sign-out") || {};
+        popupContaineLogin = document.querySelector(".popup-container-login") || {};
+    
+        hidden(login);
+        hidden(popupContaineLogin);
+        show(profile);
+        document.getElementById("profile-credits").innerHTML="credits:"+"{{credits}}"
+        show(credits)
+        show(signOut);
+      </script>
+ {% else %}
+    <script>
+    
+      function show(e) {
+          if (e && e.classList) {
+            e.classList.remove("hidden");
+          }
+      }
+    
+      function hidden(e) {
+          if (e && e.classList) {
+            e.classList.add("hidden");
+          }
+      }
+      signIn = document.querySelector(".sign-in") || {};
+      registerSubmit = document.querySelector(".register-submit") || {};
+      loginSubmit = document.querySelector(".login-submit") || {};
+      login = document.querySelector(".login") || {};
+      profile = document.querySelector(".profile") || {};
+      credits = document.querySelector(".profile-credits") || {};
+      signOut = document.querySelector(".profile-sign-out") || {};
+      popupContaineRegister = document.querySelector(".popup-container-register") || {};
+      popupContaineLogin = document.querySelector(".popup-container-login") || {};
+    
+      show(login);
+      hidden(profile);
+      hidden(popupContaineRegister);
+    </script>
+ {% endif %}
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PicStrick's AI Face Swapper Pricelist</title>
+    <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/common.css" />
+    <style>
+      .price {
+        height: auto;
+        background-color: #f6f7ff;
+        justify-content: center;
+        padding: 12px 0;
+        gap: 0 20px;
+        align-items: flex-start;
+      }
+      .price-item {
+        background-color: white;
+        flex: 0 0 calc(25% - 60px);
+        padding: 0 20px 30px 20px;
+        border-radius: 5px;
+      }
+      
+      .price-item-active {
+        background: linear-gradient(to bottom, #fffeda, #fff08c);
+      }
+
+      .price .type {
+        margin-top: 28px;
+        font-size: 20px;
+        color: #17326b;
+        line-height: 30px;
+      }
+      .price .credit {
+        color: #0e45f5;
+        height: 24px;
+        margin-bottom: 8px;
+        margin-top: 14px;
+      }
+      .price-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .price-detail div span:last-child {
+        font-size: 24px;
+
+        /* font-weight: 600; */
+      }
+      .price-btn {
+        width: calc(100% - 2px);
+        border: 1px solid #ff8e29;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #ff8e29;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .price-btn:hover {
+        background-color: #ff8e29;
+        color: white;
+      }
+
+      .price-btn-active {
+        background-color: #ff8e29;
+        color: white;
+      }
+      .price-desc {
+        margin: 4px 0;
+        font-size: 14px;
+      }
+      .price-desc ::before {
+        content: "\2713";
+        font-size: 20px;
+        color: #0e45f5;
+      }
+
+      .faq {
+        background: linear-gradient(to bottom, #f5f6f9, #ffffff);
+        height: auto;
+        display: block;
+        overflow: hidden;
+        margin-bottom: 50px;
+      }
+      .faq .title {
+        text-align: center;
+        display: block;
+        font-size: 26px;
+        font-weight: bolder;
+        margin: 24px 0;
+      }
+      .faq-list {
+        padding: 0 50px;
+      }
+      .faq-list-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-list-item {
+        border-bottom: 1px solid #999999;
+        cursor: pointer;
+      }
+      .faq-list .faq-list-item:last-child {
+        border: 0;
+      }
+      .faq-list-arrow {
+        width: 8px;
+        height: 8px;
+        background-color: transparent;
+        border-color: #999999;
+        border-style: solid;
+        border-width: 2px 2px 0 0;
+        margin: 20px;
+      }
+      .arrow-down {
+        transform: rotate(135deg);
+      }
+      .arrow-up {
+        transform: rotate(315deg);
+      }
+      .faq-list-title {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .faq-list-item p {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .title-bule {
+        color: #0e45f5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="nav-container">
+        <div class="logo"></div>
+        <div class="nav-mian">
+ 
+            <!-- <div class="nav-mian-active">
+              <span class="nav-mian-click" id="face-swap-one">Free Face Swap</span>
+            </div> -->
+            <div class="nav-mian-item">
+              <span class="nav-mian-click" id="face-swap">Free Face Swap</span>
+            </div>
+          <div class="nav-mian-item">
+            <div class="tooltip">
+              <div class="utility-box">
+                <div class="utility-title nav-mian-click">Utility</div>
+              </div>
+              <span class="tooltiptext utility">
+                <div id="pic-compress">Free Photo Compressor</div>
+                <br>
+                <div id="pic-editor">Free Photo Enhancer</div>
+                <br>
+                <!-- <div id="video-editor">Free Video Editor</div> -->
+              </span>
+            </div>
+          </div>
+          <div class="nav-mian-active">
+            <span class="pricing nav-mian-click" id="to-pricing">Pricing</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click" id="to-about">About</span>
+          </div>
+          <div class="nav-mian-item">
+            <span class="nav-mian-click" id="to-contack-us">Contact Us</span>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="tooltip">
+            <div class="keyactive">
+              <img src="../static/img/active.png" alt=""  width="30" height="30" />
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <span class="login"><font color="blue">Login</font></span>
+          <div class="tooltip">
+            <div class="profile hidden">
+              <img src="../static/img/profile.png" alt=""  width="40" height="40" />
+            </div>
+            <span class="tooltiptext">
+              <div id="profile-credits" class="profile-credits">Credits: {{credits}}</div>
+              <div class="profile-sign-out">Sign out</div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="price">
+        <img src="../static/img/500.png" />
+      </div>
+
+      <div class="footer">
+        <div class="footer-box">
+          <div class="footer-left">
+            <div>Best Online Face Swapper Free from</div>
+            <div>PicsTrick</div>
+            <div class="copyright">© 2024 picstrick</div>
+          </div>
+          <div class="footer-right">
+            <div class="resource">
+              <p>Resource</p>
+              <p><a href="./resource/make-your-deepfake-2">How To Make Your Own Deepfake in 2024</a></p>
+              <!--<p><a href="./resource/best-vpns-in-uae-1">Top 6 VPNs in UAE in 2024</a></p>-->
+            </div>
+            <div class="support">
+              <p>Support</p>
+              <p><a href="./contactus">Contact us</a></p>
+              <p><a href="./aboutus">About the Team</a></p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-register hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-register">
+          <div class="close-icon close-icon-register"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-register">
+            <h4>Sign in with your email</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="register-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input type="password"
+                placeholder="password"
+                name="password"
+                class="register-password"
+              />
+              <input
+                type="password"
+                placeholder="repassword"
+                name="repassword"
+                class="register-repassword"
+              />
+              <input
+              type="email"
+              placeholder="giveaway code(Not required)"
+              name="code"
+              class="register-code"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Sign up" class="register-submit" />
+              <span>Already have an account?<a class="sign-in"><font color="blue">Sign in</font></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container popup-container-login hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-login">
+          <div class="close-icon close-icon-login"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-1-2.jpg" alt="" height="300" width="300"/>
+          </div>
+          <div class="form">
+            <h4>Welcome to picstrick!</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="login-email"
+              />
+              <span class="error-text-email hidden" id="email">email error!</span>
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                class="login-password"
+              />
+              <span class="error-text hidden" id="password">password error</span>
+              <input type="submit" value="Sign in" class="login-submit" />
+              <span>Forget your password?<a class="find-passwd"><font color="blue">Retrieve password</font></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-passwd hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-passwd">
+          <div class="close-icon close-icon-passwd"></div>
+          <div class="popup-left">
+            <img src="../static/img/source-2.jpg" alt="" height="300" width="300" />
+          </div>
+          <div class="form form-passwd">
+            <h4>Submit Email and UUid for Retrieve password</h4>
+            <div>
+              <input
+                type="email"
+                placeholder="email address"
+                name="email"
+                class="passwd-email"
+              />
+              <span class="error-text hidden">email error</span>
+              <input
+              type="text"
+              placeholder="uuid you receive in you email"
+              name="uuid"
+              class="passwd-uuid"
+            />
+
+              <span class="error-text hidden" id="password">uuid should not be null</span>
+              <input type="submit" value="Retrieve password" class="passwd-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-active hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-active"></div>
+          <div class="popup-left">
+            <img src="../static/img/active.png" alt="" height="200" width="200"/>
+          </div>
+          <div class="form">
+            <h4>Welcome to picstrick!</h4>
+            <div>
+              <input
+                type="text"
+                placeholder="your license code"
+                name="email"
+                class="active-code"
+              />
+              <span class="error-text-email hidden" id="email">license error!</span>
+              <input type="submit" value="Active" class="active-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-container popup-container-pay hidden">
+        <div class="overlay"></div>
+        <div class="popup popup-active">
+          <div class="close-icon close-icon-pay"></div>
+          <div class="form">
+            <h4>Please chose your pay!</h4>
+            <div>
+              <input type="hidden" name="is_paying" id="is_paying" value="False"/> 
+              <input type="hidden" name="order_type" id="order_type" value="type0"/> 
+              <input type="image" src="../static/img/paypal2.png" value="Paypal" class="active-submit" id="paypal-submit" />
+              <input type="image" src="../static/img/visa.png" value="VisaCard" class="active-submit" id="visa-submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script src="../static/js/jquery.2.1.4.min.js"></script>
+  <script src="../static/js/common.js"></script>
+  <script src="../static/js/pay.js"></script>
+  <script type="text/javascript">
+       //setTimeout(window.location.href='./faceswap', 10000)
+  </script>
+  <script>
+    const faq = document.getElementsByClassName("faq-list-item");
+
+    for (let i = 0; i < faq.length; i++) {
+      faq[i].onclick = (e) => {
+        const p = faq[i].children[1];
+        const arrow = faq[i].children[0].children[1];
+        const title = faq[i].children[0].children[0];
+        if (p.classList.contains("hidden")) {
+          p.classList.remove("hidden");
+          arrow.classList.add("arrow-up");
+          arrow.classList.remove("arrow-down");
+          title.classList.add("title-bule");
+        } else {
+          p.classList.add("hidden");
+          arrow.classList.add("arrow-down");
+          arrow.classList.remove("arrow-up");
+          title.classList.remove("title-bule");
+        }
+      };
+    }
+  </script>
+{% if isLogin %}
+<script>
+
+  function show(e) {
+    if (e && e.classList) {
+      e.classList.remove("hidden");
+    }
+  }
+
+  function hidden(e) {
+    if (e && e.classList) {
+      e.classList.add("hidden");
+    }
+  }
+  signIn = document.querySelector(".sign-in") || {};
+  registerSubmit = document.querySelector(".register-submit") || {};
+  loginSubmit = document.querySelector(".login-submit") || {};
+  login = document.querySelector(".login") || {};
+  profile = document.querySelector(".profile") || {};
+  credits = document.querySelector(".profile-credits") || {};
+  signOut = document.querySelector(".profile-sign-out") || {};
+  popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+  hidden(login);
+  hidden(popupContaineLogin);
+  show(profile);
+  document.getElementById("profile-credits").innerHTML="credits:"+"{{credits}}"
+  show(credits)
+  show(signOut);
+</script>
+{% else %}
+<script>
+
+ function show(e) {
+    if (e && e.classList) {
+      e.classList.remove("hidden");
+    }
+ }
+
+ function hidden(e) {
+    if (e && e.classList) {
+      e.classList.add("hidden");
+    }
+ }
+ signIn = document.querySelector(".sign-in") || {};
+ registerSubmit = document.querySelector(".register-submit") || {};
+ loginSubmit = document.querySelector(".login-submit") || {};
+ login = document.querySelector(".login") || {};
+ profile = document.querySelector(".profile") || {};
+ credits = document.querySelector(".profile-credits") || {};
+ signOut = document.querySelector(".profile-sign-out") || {};
+ popupContaineRegister = document.querySelector(".popup-container-register") || {};
+ popupContaineLogin = document.querySelector(".popup-container-login") || {};
+
+ show(login);
+ hidden(profile);
+ hidden(popupContaineRegister);
+</script>
+{% endif %}
+</html>
