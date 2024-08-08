@@ -368,7 +368,7 @@ time {
   transform: translateY(50%);
   -webkit-transition: opacity 0.4s, -webkit-transform 0.4s ease;
   transition: opacity 0.4s, transform 0.4s ease;
-  bottom: 45%;
+  bottom: 20%;
 }
 .to-top-etc .to-top:hover {
   background-color: #d6d6d6;
