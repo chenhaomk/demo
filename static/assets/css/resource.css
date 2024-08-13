@@ -358,7 +358,7 @@ time {
 }
 .to-top-etc {
   position: fixed;
-  right: 60px;
+  right: 114px;
   bottom: 36%;
   z-index: -9999;
   display: flex;
@@ -549,11 +549,11 @@ h3.head-type-01::after {
 .banner-right-tips {
   background-color: #e9f5ff;
   height: 420px;
-  width: 300px;
+  width: 280px;
   border-radius: 15px;
-  position: absolute;
-  top: -50px;
-  right: -60px;
+  position: fixed;
+  top: 200px;
+  right: 30px;
   text-align: center;
 }
 .tips-button-link {

@@ -621,14 +621,18 @@
         font-size: 18px;
         /* font-weight: 600; */
         color:white;
-        background-color: #ff7b5c;
+        background-color: #ff721d;
         box-sizing: border-box;
         cursor: pointer;
+        background: #ff721d url(../static//img/shopping-car.png) 70px center no-repeat;
+        text-indent: 110px;
+        text-align: left;
+        background-size: 24px;
       }
-      .price-buy:hover {
-        background-color: #ff4d0f;
+      /* .price-buy:hover {
+        background-color: #ff721d;
         box-shadow: 0px 5px 10px 0px rgba(254,152,112,0.99);
-      }
+      } */
       .price-desc {
         display: flex;
         justify-content: space-around;
@@ -661,6 +665,9 @@
         margin-top: 16px;
       }
 
+
+
+
       .price-reduce .left-ic {
         position: relative;
         padding-top: 0px;
@@ -683,6 +690,25 @@
         margin-top: -6px;
         font-size: 14px;
         display: block;
+      }
+
+      .price-reduce .left-ic .reduce  {
+        display: inline-block;
+        position: absolute;
+        top: -15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 28px;
+        height: 49px;
+        background: url(../static/img/reduce_one.png) no-repeat;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+
+      .price-reduce .left-ic .reduce.on {
+        top: -30px;
+        opacity: 1
       }
 
       .price-reduce ._right {
@@ -1247,6 +1273,10 @@
             <div class="price-desc-item" >
               <div>$120</div>
               <div>Your Save</div>      
+            </div>
+            <div class="price-desc-item" >
+              <div>3000</div>
+              <div>Credits</div>      
             </div>
           </div>
           <div class="price-reduce">
