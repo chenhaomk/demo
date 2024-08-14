@@ -6,6 +6,10 @@
     <title>PicStrick's AI Face Swapper Pricelist</title>
     <link rel="Shortcut Icon" href="../static/img/picstrickicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="../static/css/common.css" />
+    <link rel="stylesheet" href="../static/css/modal.css">
+    <link rel="stylesheet" href="../static/css/paymentModal.css">
+    <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
+
        <!-- <script 
         src="https://www.paypal.com/sdk/js?client-id=CLIENT_ID&components=messages,buttons"
         data-namespace="PayPalSDK"> 
@@ -139,6 +143,9 @@
       }
       .title-bule {
         color: #0e45f5;
+      }
+      .modal-content {
+        margin-top: 7%;
       }
     </style>
   </head>
@@ -519,7 +526,44 @@
           </div>
         </div>
       </div>
+      <div id="modal-container" class="modal">
+        <div class= " modal-content discount-modal ">
+          <div style="text-align: center">
+            <h1>Choose Your Payment for PicsTrick!</h1>
+          </div>
+          <div class="discount-modal-content" >
+            <div class="content-left">
+              <div>
+                <div class="coins-box">
+                  <img src="../static/img/shopping_car_yellow.png" alt="" />
+                  <h2>PicsTrick Credits Subscription</h2>
+                </div>
+                <div class="monthly-plan">
+                  <div>UItimate Moda(3000 Credits)</div>
+                  <div>$12.99</div>
+                </div>
+                <div class="discount">
+                  <div>Discount <span class="discount-percent">(69% OFF)</span></div>
+                  <div>-$<span class="discount-sum">12.99</span></div>
+                </div>
+                <div class="total-due">
+                  <div>Total due</div>
+                  <div>$12.99</div>
+                </div>
+                <ul class="payment-desc">
+                  <li>One-time payment,no monthly Subscription</li>
+                  <li>100% secure payment encryption</li>
+                  <li>Activation in an instant</li>
+                </ul>
+              </div>
+            </div>
+            <div class="payment">
+              <div id="dropIn">
+              </div>
+            </div>
+          </div>
 
+      </div>
     </div>
   </body>
   <script src="../static/js/jquery.2.1.4.min.js"></script>
@@ -546,6 +590,92 @@
         }
       };
     }
+  </script>
+  <script>
+    //TODO:
+    var modal = document.getElementById("modal-container");
+    window.onload = ()=>{
+      modal.style.display = "block";
+    } 
+    
+    try {
+        // STEP #2: Initialize the Airwallex global context for event communication
+        Airwallex.init({
+          env: "prod", // Setup which Airwallex env('staging' | 'demo' | 'prod') to integrate with
+          origin: window.location.origin, // Setup your event target to receive the browser events message
+          locale: "en",
+          fonts: [
+            // Customizes the font for the payment elements
+            {
+              src: "https://checkout.airwallex.com/fonts/CircularXXWeb/CircularXXWeb-Regular.woff2",
+              family: "AxLLCircular",
+              weight: 400,
+            },
+          ],
+        });
+
+        // STEP #4: Create 'dropIn' element
+        const dropIn = Airwallex.createElement("dropIn", {
+          intent_id: "{{intent_id}}",
+          currency: "{{currency}}",
+          client_secret: "{{client_secret}}",
+        });
+        // STEP #5: Mount 'dropIn' element
+        dropIn.mount("dropIn"); // This 'dropIn' id MUST MATCH the id on your empty container created in Step 3
+        document.getElementById("loading").style.display = "none";
+      } catch (error) {
+        document.getElementById("loading").style.display = "none"; // Example: hide loading state
+        document.getElementById("error").style.display = "block"; // Example: show error
+        document.getElementById("error").innerHTML = error.message; // Example: set error message
+        console.error("There was an error", error);
+      }
+
+      // STEP #6: Add an event listener to handle events when the element is mounted
+      window.addEventListener("onReady", (event) => {
+        /*
+           ... Handle event
+         */
+        document.getElementById("dropIn").style.display = "block"; // Example: show element when mounted
+        document.getElementById("content-left").style.display = "block"; // Example: show element when mounted
+        document.getElementById("loading").style.display = "none"; // Example: hide loading tag when element is mounted
+        console.log("Element is ready", event.detail);
+      });
+
+      // STEP #7: Add an event listener to handle events when the payment is successful.
+      window.addEventListener("onSuccess", (event) => {
+        /*
+           ... Handle event on success
+         */
+        document.getElementById("success").style.display = "block"; // Example: show success block
+        console.warn(event.detail);
+
+        $.ajax({
+          type: "POST",
+          url: "airwallexcallback",
+          data: JSON.stringify(event.detail),
+          contentType: "application/json;charset=utf-8",
+          success: function (data) {
+            window.location.href = data["redirect"];
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log("aaa", textStatus);
+          },
+
+          complete: function (XMLHttpRequest, textStatus) {
+            this; // 调用本次AJAX请求时传递的options参数
+          },
+        });
+      });
+
+      // STEP #8: Add an event listener to handle events when the payment has failed.
+      window.addEventListener("onError", (event) => {
+        const { error } = event.detail;
+        document.getElementById("error").style.display = "block"; // Example: show error block
+        document.getElementById("error").innerHTML = error.message; // Example: set error message
+        console.error("There was an error", error);
+      });
   </script>
 {% if isLogin %}
 <script>

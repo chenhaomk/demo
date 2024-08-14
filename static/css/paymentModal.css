@@ -1,0 +1,183 @@
+ul,i,p {
+    margin: 0;
+    padding: 0;
+  }
+body {
+  font-family: "AxLLCircular";
+  padding: 15px 25px;
+}
+
+span#code {
+  font-family: monospace;
+  background-color: lightgrey;
+  font-size: 16px;
+}
+
+div#links {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 15px;
+  font-family: "AxLLCircular";
+  padding: 5px 10px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #612fff;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+button:disabled {
+  opacity: 0.75;
+}
+
+p#error {
+  background: #ffebee;
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-width: 400px;
+  display: none;
+}
+p#success {
+  background: lightgreen;
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-width: 400px;
+  display: none;
+}
+
+p#author {
+  margin-top: 100px;
+}
+
+.field-container {
+  margin: 15px 0px;
+}
+
+div.instruction-container {
+  padding: 10px 50px;
+  text-align: left;
+}
+
+span#code {
+  font-family: monospace;
+  background-color: lightgrey;
+  font-size: 16px;
+  margin: 0px 5px;
+}
+
+p#bullet {
+  font-weight: bold;
+}
+
+@font-face {
+  src: url("https://checkout.airwallex.com/fonts/CircularXXWeb/CircularXXWeb-Bold.woff");
+  font-family: "AxLLCircular";
+  weight: "bold";
+}
+@font-face {
+  src: url("https://checkout.airwallex.com/fonts/CircularXXWeb/CircularXXWeb-Regular.woff2");
+  font-family: "AxLLCircular";
+  weight: "400";
+}
+
+
+.discount-modal-content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
+}
+.discount-modal-content .content-left {
+  display: none;
+  background-color: #f8f8f8;
+  width: 420px;
+  padding: 40px 30px 0 30px;
+}
+.discount-modal-content .content-left h2 {
+  margin: 0;
+  padding: 0;
+  margin-top: 35px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.monthly-plan {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.discount {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+.discount div:first-child {
+  font-weight: bold;
+}
+.monthly-plan div:first-child {
+  font-weight: bold;
+}
+.discount-percent,
+.discount div:last-child {
+  color: #f59a23;
+}
+.total-due {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px 30px 16px;
+  border-bottom: 1px solid #d1d0d8;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.total-due div:first-child {
+  font-weight: bold;
+}
+.total-due div:last-child {
+  font-weight: bold;
+  font-size: 18px;
+}
+.timer {
+  color: #b2b1b2;
+  font-size: 18px;
+}
+.coins-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d1d0d8;
+  align-items: center;
+}
+.coins-box img {
+  width: 60px;
+  height: 60px;
+}
+.payment-desc {
+  padding: 0 16px 0 32px;
+  margin-top: 30px;
+}
+.payment-desc li {
+  margin: 10px 0;
+}
+
+#dropIn {
+  width: 480px;
+  /* display: none; */
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
