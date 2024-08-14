@@ -176,30 +176,15 @@
             <div>Total due</div>
             <div>$12.99</div>
           </div>
-          <div class="timer" >
-            Renewal on <span class="month" >September</span> <span class="days" >12</span>,at <span class="total-due-num">$12.99</span> every month.
+          <div class="timer">
+            Renewal on <span class="month">September</span>
+            <span class="days">12</span>,at
+            <span class="total-due-num">$12.99</span> every month.
           </div>
         </div>
       </div>
       <div class="payment">
-        <div id="dropIn">
-          <iframe
-            frameborder="0"
-            allowtransparency="true"
-            importance="high"
-            scrolling="no"
-            allowpaymentrequest="true"
-            style="
-              transition: height 0.35s ease 0s;
-              height: 520px;
-              width: 100%;
-              display: block;
-            "
-            src="https://checkout.airwallex.com/#/elements/dropin?options=%7B%22intent_id%22%3A%22int_hkpds5n4ngyy62hkina%22%2C%22currency%22%3A%22USD%22%2C%22client_secret%22%3A%22eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM1NTQ2MzYsImV4cCI6MTcyMzU1ODIzNiwidHlwZSI6ImNsaWVudC1zZWNyZXQiLCJwYWRjIjoiSEsiLCJhY2NvdW50X2lkIjoiYTFmYmEyYmItMDI2ZS00M2QyLTllMjAtZTZlNmQwYjM4M2QwIiwiaW50ZW50X2lkIjoiaW50X2hrcGRzNW40bmd5eTYyaGtpbmEiLCJidXNpbmVzc19uYW1lIjoiQ29kZXIgQ3JlYXRpb24gSEsgTGltaXRlZCJ9.LjDuIPJhAOGPOL8iowKWTwVFEK45wnqLJGcVmVYFAiY%22%2C%22origin%22%3A%22https%3A%2F%2Fpicstrick.com%22%2C%22appearance%22%3A%7B%7D%2C%22sessionId%22%3A%22257a726a-10c1-4e1e-b8f9-76409c6ac63a%22%2C%22fonts%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fcheckout.airwallex.com%2Ffonts%2FCircularXXWeb%2FCircularXXWeb-Regular.woff2%22%2C%22family%22%3A%22AxLLCircular%22%2C%22weight%22%3A400%7D%5D%7D&amp;lang=en&amp;appVersion=v1.847.0"
-            name="Airwallex dropIn element iframe"
-            title="Airwallex dropIn element iframe"
-          ></iframe>
-        </div>
+        <div id="dropIn"></div>
       </div>
     </div>
 
@@ -212,7 +197,7 @@
         Airwallex.init({
           env: "prod", // Setup which Airwallex env('staging' | 'demo' | 'prod') to integrate with
           origin: window.location.origin, // Setup your event target to receive the browser events message
-          locale:'en',
+          locale: "en",
           fonts: [
             // Customizes the font for the payment elements
             {
@@ -227,7 +212,7 @@
         const dropIn = Airwallex.createElement("dropIn", {
           intent_id: "{{intent_id}}",
           currency: "{{currency}}",
-          client_secret:"{{client_secret}}",
+          client_secret: "{{client_secret}}",
         });
         // STEP #5: Mount 'dropIn' element
         dropIn.mount("dropIn"); // This 'dropIn' id MUST MATCH the id on your empty container created in Step 3
@@ -259,24 +244,23 @@
         console.warn(event.detail);
 
         $.ajax({
-          type : "POST",
-          url : 'airwallexcallback', 
-          data : JSON.stringify(event.detail),
-          contentType : "application/json;charset=utf-8",
-          success : function(data){
-                   window.location.href = data['redirect']
-                },
-          error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log(XMLHttpRequest.status);
-                    console.log(XMLHttpRequest.readyState);
-                    console.log("aaa", textStatus);
-                },
+          type: "POST",
+          url: "airwallexcallback",
+          data: JSON.stringify(event.detail),
+          contentType: "application/json;charset=utf-8",
+          success: function (data) {
+            window.location.href = data["redirect"];
+          },
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log("aaa", textStatus);
+          },
 
-          complete: function(XMLHttpRequest, textStatus) {
-                      this; // 调用本次AJAX请求时传递的options参数
-                }
+          complete: function (XMLHttpRequest, textStatus) {
+            this; // 调用本次AJAX请求时传递的options参数
+          },
         });
-
       });
 
       // STEP #8: Add an event listener to handle events when the payment has failed.
